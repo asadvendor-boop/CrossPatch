@@ -1,0 +1,124 @@
+.explanation {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.32fr) minmax(0, 1fr);
+  border: 1px solid var(--line-strong);
+  background: var(--ink-1);
+}
+
+.explanation > header {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-content: center;
+  gap: 2px 8px;
+  border-right: 1px solid var(--line-strong);
+  padding: 14px;
+  background: var(--ink-2);
+}
+
+.explanation header svg {
+  width: 20px;
+  height: 20px;
+  grid-row: 1 / span 2;
+  color: var(--text);
+}
+
+.explanation h2 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+.explanation header span {
+  color: var(--dim);
+  font-size: 0.68rem;
+}
+
+.explanation ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  background: var(--line);
+  list-style: none;
+}
+
+.explanation li {
+  min-width: 0;
+  padding: 14px;
+  color: var(--text);
+  background: var(--ink-1);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.compact {
+  display: block;
+  border-color: var(--line);
+}
+
+.compact > header {
+  grid-template-columns: 18px minmax(0, 1fr);
+  border-right: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 9px 10px;
+}
+
+.compact header svg {
+  width: 16px;
+  height: 16px;
+}
+
+.compact h2 {
+  font-size: 0.82rem;
+}
+
+.compact header span {
+  font-size: 0.62rem;
+}
+
+.compact ol {
+  display: block;
+  padding: 9px 10px;
+  background: var(--ink-1);
+  counter-reset: facts;
+}
+
+.compact li {
+  position: relative;
+  padding: 0 0 0 18px;
+  font-size: 0.76rem;
+  line-height: 1.42;
+  counter-increment: facts;
+}
+
+.compact li + li {
+  margin-top: 6px;
+}
+
+.compact li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--dim);
+  content: counter(facts, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+@media (max-width: 850px) {
+  .explanation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .explanation > header {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-strong);
+  }
+}
+
+@media (max-width: 620px) {
+  .explanation ol {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

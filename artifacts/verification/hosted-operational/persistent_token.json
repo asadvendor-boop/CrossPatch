@@ -1,0 +1,24 @@
+{
+  "check_id": "persistent_token",
+  "checked_at": "2026-07-19T16:55:00Z",
+  "command": "authenticated Judge MCP probe before and after controlled restart",
+  "deployment": {
+    "git_sha": "64032e87b6af9acf208abf98f3515e338d14054c",
+    "public_url": "https://crosspatch.repair"
+  },
+  "generator": "scripts/hosted_verifier.py",
+  "generator_action": "capture:persistent_token",
+  "machine_generated": true,
+  "observations": {
+    "after_restart_authenticated": true,
+    "before_restart_authenticated": true,
+    "restarted_services": [
+      "caddy",
+      "judge-mcp"
+    ],
+    "token_sha256": "57b56b9cd64c323e1cf483206188efd0a74e874f40c2efed976446eb41821109"
+  },
+  "schema_version": "crosspatch.hosted-evidence.v1",
+  "source": "live deployment observation by the checked-in hosted verifier",
+  "status": "PASS"
+}

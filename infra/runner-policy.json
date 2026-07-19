@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "oracle": {
+    "service": "runner",
+    "uid": 10001,
+    "pid_namespace": "private",
+    "read_only_rootfs": true,
+    "jobs_mount": "/var/lib/crosspatch/jobs:rw",
+    "workspace_mount": "/var/lib/crosspatch/candidate-workspaces:rw",
+    "owns_context_mode": "0400"
+  },
+  "executor": {
+    "service": "candidate-executor",
+    "uid": 10003,
+    "container_bootstrap_uid": 0,
+    "pid_namespace": "private",
+    "read_only_rootfs": true,
+    "workspace_mount": "/workspaces:ro",
+    "capabilities": ["KILL", "SETGID", "SETUID"],
+    "capability_source": "root-bootstrap-in-process-demotion",
+    "no_new_privileges": true
+  },
+  "candidate": {
+    "parent_service": "candidate-executor",
+    "uid": 10002,
+    "pid_namespace": "shared-disposable-executor-container",
+    "read_only_rootfs": true,
+    "workspace_mount": "/workspaces:ro",
+    "context_mounts": [],
+    "receipt_mounts": [],
+    "container_runtime_socket": false,
+    "capabilities": [],
+    "no_new_privileges": true
+  },
+  "oracle_context_visible_to_candidate": false,
+  "candidate_stdout_is_authoritative": false,
+  "candidate_exit_zero_is_authoritative": false,
+  "candidate_executor_restarts_after_each_attempt": true,
+  "success_authority": "trusted-supervisor-postgresql-http-observation"
+}

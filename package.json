@@ -1,0 +1,27 @@
+{
+  "name": "crosspatch",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "npm@11.6.2",
+  "workspaces": [
+    "web"
+  ],
+  "devDependencies": {
+    "eslint": "9.39.5",
+    "next": "16.2.10"
+  },
+  "overrides": {
+    "postcss": "8.5.19",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.46.0"
+  },
+  "scripts": {
+    "dev": "npm --workspace @crosspatch/web run dev",
+    "build": "npm --workspace @crosspatch/web run build",
+    "lint": "npm --workspace @crosspatch/web run lint",
+    "typecheck": "npm --workspace @crosspatch/web run typecheck"
+  }
+}

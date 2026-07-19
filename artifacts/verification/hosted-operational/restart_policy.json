@@ -1,0 +1,31 @@
+{
+  "check_id": "restart_policy",
+  "checked_at": "2026-07-19T16:54:48Z",
+  "command": "docker compose ps -q plus docker inspect for every service",
+  "deployment": {
+    "git_sha": "64032e87b6af9acf208abf98f3515e338d14054c",
+    "public_url": "https://crosspatch.repair"
+  },
+  "generator": "scripts/hosted_verifier.py",
+  "generator_action": "capture:restart_policy",
+  "machine_generated": true,
+  "observations": {
+    "services": {
+      "api": "unless-stopped",
+      "broker-mcp": "unless-stopped",
+      "caddy": "unless-stopped",
+      "candidate-executor": "unless-stopped",
+      "evidence-mcp": "unless-stopped",
+      "judge-mcp": "unless-stopped",
+      "postgres": "unless-stopped",
+      "runner": "unless-stopped",
+      "victim": "unless-stopped",
+      "victim-postgres": "unless-stopped",
+      "victim-worker": "unless-stopped",
+      "web": "unless-stopped"
+    }
+  },
+  "schema_version": "crosspatch.hosted-evidence.v1",
+  "source": "live deployment observation by the checked-in hosted verifier",
+  "status": "PASS"
+}

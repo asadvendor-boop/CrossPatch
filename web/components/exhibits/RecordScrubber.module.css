@@ -1,0 +1,83 @@
+.scrubber {
+  border: 1px solid var(--line-strong);
+  background: var(--ink-1);
+  box-shadow: var(--panel-shadow);
+}
+
+.scrubber > header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid var(--line-strong);
+  padding: 16px 18px;
+}
+
+.scrubber header > div:first-child > span {
+  color: var(--dim);
+  font-size: 0.7rem;
+  font-weight: 760;
+  letter-spacing: 0.05em;
+}
+
+.scrubber h2 { margin: 3px 0 0; font-size: clamp(1.25rem, 2.2vw, 1.85rem); }
+
+.position { display: grid; justify-items: end; text-align: right; }
+.position strong { font-size: 0.88rem; }
+.position span { margin-top: 2px; color: var(--muted); font-size: 0.72rem; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 13px 18px;
+}
+
+.controls button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--line-strong);
+  padding: 8px 12px;
+  color: var(--text);
+  background: var(--ink-2);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+.controls button.primary {
+  color: var(--primary-color);
+  background: var(--trace);
+}
+
+.controls button:disabled { cursor: not-allowed; opacity: 0.45; }
+.controls button:focus-visible,
+.range input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.controls svg { width: 16px; height: 16px; }
+
+.range {
+  display: grid;
+  gap: 7px;
+  border-top: 1px solid var(--line);
+  padding: 13px 18px 16px;
+}
+
+.range > span:first-child,
+.reduced {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 680;
+}
+
+.range input { width: 100%; accent-color: var(--active); }
+.rangeEnds { display: flex; justify-content: space-between; color: var(--dim); font-size: 0.66rem; }
+.reduced { margin: 0; border-top: 1px solid var(--line); padding: 13px 18px 16px; }
+
+@media (max-width: 620px) {
+  .scrubber > header { align-items: flex-start; flex-direction: column; }
+  .position { justify-items: start; text-align: left; }
+  .controls button { flex: 1 1 calc(50% - 8px); }
+}

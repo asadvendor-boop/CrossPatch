@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "generator": "User-provided ChatGPT Images",
+  "sourceDimensions": [1024, 1536],
+  "cropDimensions": [800, 1000],
+  "renderDimensions": {
+    "card": [72, 90],
+    "expanded": [160, 200]
+  },
+  "assets": [
+    { "seat": "Prosecutor", "source": "prosecutor-source.webp", "crop": "prosecutor.webp", "available": true },
+    { "seat": "Inspector", "source": "inspector-source.webp", "crop": "inspector.webp", "available": true },
+    { "seat": "Counsel", "source": "counsel-source.webp", "crop": "counsel.webp", "available": true },
+    { "seat": "Magistrate", "source": "magistrate-source.webp", "crop": "magistrate.webp", "available": true },
+    { "seat": "Bailiff", "source": "bailiff-source.webp", "crop": "bailiff.webp", "available": true }
+  ]
+}

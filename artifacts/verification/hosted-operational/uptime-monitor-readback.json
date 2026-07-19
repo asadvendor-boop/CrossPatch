@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-07-19T16:53:55Z",
+  "generator": "curl plus checked-in release operator workflow",
+  "machine_generated": true,
+  "observations": {
+    "down": 0,
+    "monitor_created_at": "2026-07-17 15:59:10",
+    "monitor_id": 803533714,
+    "monitor_name": "Keyword on crosspatch.repair/healthz",
+    "monitor_status_class": "success",
+    "monitor_type": "Keyword",
+    "paused": 0,
+    "provider_summary": "All Clear",
+    "total_monitors": 1,
+    "up": 1
+  },
+  "schema_version": "crosspatch.uptime-monitor-readback.v1",
+  "source": "UptimeRobot public status-page API readback",
+  "status": "PASS"
+}

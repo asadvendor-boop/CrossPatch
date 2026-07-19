@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-07-19T20:52:41Z",
+  "checks": [
+    {
+      "command": "uv run --frozen --extra dev python -m pytest victim/tests/test_race.py victim/tests/test_worker_retry.py backend/tests/integration/test_reproduction.py backend/tests/integration/test_payload_equivalence.py -q",
+      "duration_ms": 324,
+      "exit_code": 0,
+      "output_bytes": 125,
+      "output_sha256": "d15ecc0fbd643e7a1013d86cbc5e86825e4fa9461bb33a6e8ba2a99eed2cfca0",
+      "output_truncated": false,
+      "started_at": "2026-07-19T20:52:34Z",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "sssss..ssss.s                                                            [100%]\n3 passed, 10 skipped in 0.14s\n",
+      "timed_out": false
+    },
+    {
+      "command": "docker compose --profile verification run --rm -T victim-postgres-verifier -m pytest /opt/crosspatch/tests/victim/test_race.py /opt/crosspatch/tests/victim/test_worker_retry.py /opt/crosspatch/tests/backend/integration/test_reproduction.py::test_affected_revision_reproduces_real_duplicate_delivery /opt/crosspatch/tests/backend/integration/test_payload_equivalence.py::test_affected_revision_rejects_semantically_equivalent_retry -q",
+      "duration_ms": 6817,
+      "exit_code": 0,
+      "output_bytes": 947,
+      "output_sha256": "61922adf8534566bf914a549457a716fbc359829f5b2b30f28a786c6467fd79c",
+      "output_truncated": false,
+      "started_at": "2026-07-19T20:52:34Z",
+      "status": "PASS",
+      "stderr": " Network crosspatch-release-proof-5e50af47aba5_verification Creating \n Network crosspatch-release-proof-5e50af47aba5_verification Created \n Container crosspatch-release-proof-5e50af47aba5-verification-postgres-1 Creating \n Container crosspatch-release-proof-5e50af47aba5-verification-postgres-1 Created \n Container crosspatch-release-proof-5e50af47aba5-verification-postgres-1 Starting \n Container crosspatch-release-proof-5e50af47aba5-verification-postgres-1 Started \n Container crosspatch-release-proof-5e50af47aba5-verification-postgres-1 Waiting \n Container crosspatch-release-proof-5e50af47aba5-verification-postgres-1 Healthy \n Container crosspatch-release-proof-5e50af47aba5-victim-postgres-verifier-run-a2e987554faf Creating \n Container crosspatch-release-proof-5e50af47aba5-victim-postgres-verifier-run-a2e987554faf Created \n",
+      "stdout": ".......                                                                  [100%]\n7 passed in 0.74s\n",
+      "timed_out": false
+    }
+  ],
+  "generator": "scripts/verify-release.sh",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "machine_generated": true,
+  "schema_version": 1,
+  "source": "real signed HTTP and PostgreSQL bundled-scenario reproduction",
+  "source_sha256": "8f04b5027d53da5c8827e24cbe186c514ca55db3b81d2d53e7801d2c108b2849",
+  "status": "PASS"
+}

@@ -1,0 +1,40 @@
+name: Keyless judge verification
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  judge:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      OPENAI_API_KEY: ""
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up uv
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          version: "0.10.12"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Activate pinned npm
+        run: |
+          NPM_VERSION="$(node -p "require('./package.json').packageManager.replace(/^npm@/, '')")"
+          npm install --global "npm@${NPM_VERSION}" --ignore-scripts --no-audit --no-fund
+          test "$(npm --version)" = "${NPM_VERSION}"
+      - name: Run keyless judge gate
+        run: make judge

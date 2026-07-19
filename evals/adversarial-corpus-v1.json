@@ -1,0 +1,316 @@
+{
+  "broker_expiry_controls": [
+    {
+      "id": "authority.claim-time-expired",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_claim_time_expiry_rejects_without_worktree_or_process"
+    }
+  ],
+  "broker_reuse_controls": [
+    {
+      "id": "authority.single-use-replay",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_concurrent_execution_consumes_nonce_once_and_failure_stays_consumed"
+    }
+  ],
+  "broker_tamper_controls": [
+    {
+      "id": "doc.format-version",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[format-version]"
+    },
+    {
+      "id": "doc.warrant-id",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[warrant-id]"
+    },
+    {
+      "id": "doc.incident-id",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[incident-id]"
+    },
+    {
+      "id": "doc.repository-id",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[repository-id]"
+    },
+    {
+      "id": "doc.verdict-id",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[verdict-id]"
+    },
+    {
+      "id": "doc.verdict-hash",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[verdict-hash]"
+    },
+    {
+      "id": "doc.candidate-id",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[candidate-id]"
+    },
+    {
+      "id": "doc.authority-snapshot",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[authority-snapshot]"
+    },
+    {
+      "id": "doc.evidence-manifest",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[evidence-manifest]"
+    },
+    {
+      "id": "doc.timeline-head",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[timeline-head]"
+    },
+    {
+      "id": "doc.base-sha",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[base-sha]"
+    },
+    {
+      "id": "doc.repository-manifest",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[repository-manifest]"
+    },
+    {
+      "id": "doc.actual-patch-bytes",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[actual-patch-bytes]"
+    },
+    {
+      "id": "doc.patch-hash",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[patch-hash]"
+    },
+    {
+      "id": "doc.allowed-paths",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[allowed-paths]"
+    },
+    {
+      "id": "doc.plan-id",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[plan-id]"
+    },
+    {
+      "id": "doc.resolved-argv",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[resolved-argv]"
+    },
+    {
+      "id": "doc.working-directory",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[working-directory]"
+    },
+    {
+      "id": "doc.timeout",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[timeout]"
+    },
+    {
+      "id": "doc.oracle-profile",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[oracle-profile]"
+    },
+    {
+      "id": "doc.expected-statuses",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[expected-statuses]"
+    },
+    {
+      "id": "doc.plan-digest",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[plan-digest]"
+    },
+    {
+      "id": "doc.test-plan",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[test-plan]"
+    },
+    {
+      "id": "doc.expiry",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[expiry]"
+    },
+    {
+      "id": "doc.approver",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[approver]"
+    },
+    {
+      "id": "doc.issued-at",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[issued-at]"
+    },
+    {
+      "id": "doc.mac-key-id",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[mac-key-id]"
+    },
+    {
+      "id": "doc.nonce",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[nonce]"
+    },
+    {
+      "id": "doc.runner-digest",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[runner-digest]"
+    },
+    {
+      "id": "doc.environment-digest",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_every_bound_field_and_actual_patch_tamper_rejects_before_side_effects[environment-digest]"
+    },
+    {
+      "id": "catalog.oracle-profile-drift",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_approved_self_consistent_oracle_plan_drift_rejects_before_side_effects[oracle_profile-duplicate-race]"
+    },
+    {
+      "id": "catalog.expected-statuses-drift",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_approved_self_consistent_oracle_plan_drift_rejects_before_side_effects[expected_statuses-value1]"
+    },
+    {
+      "id": "approval.mac",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_approval_mac_tamper_rejects_before_side_effects"
+    },
+    {
+      "id": "authority.live-snapshot",
+      "pytest_node_id": "backend/tests/integration/test_broker.py::test_changed_authority_snapshot_after_clear_rejects_before_side_effects"
+    }
+  ],
+  "duplicate_retry_refusals": [
+    {
+      "artifact_path": "artifacts/verification/live-failures/inc_de59664e3e944b1c9bd3b87a55cac99b-room.json",
+      "event_type": "FAILED_RETRY_DUPLICATE",
+      "id": "duplicate-retry-inc_de59664e3e944b1c9bd3b87a55cac99b",
+      "incident_id": "inc_de59664e3e944b1c9bd3b87a55cac99b"
+    }
+  ],
+  "genuine_hostile_evidence": [
+    {
+      "archive_path": "artifacts/verification/adversarial-eval/c2/inc_39338e35925c4650bb16445cb3761a3d.zip",
+      "archive_sha256": "77332a471410a0c8cdfac76fa12ce353f6a88e2789924e21ea1a074d10077731",
+      "canonical_sha256": "35342f9f69bfb22fa8515870400e2c09b9747f2e163da338adee9632047ef789",
+      "evidence_id": "ev_ffb657e599d74f169d60bcef3e393014",
+      "id": "c2-signed-log-f509360b8cf31c2b784fe2c73cecddf0c0b8dbdf069a5a5ba932fdfa125ecc9f",
+      "incident_id": "inc_39338e35925c4650bb16445cb3761a3d",
+      "provenance_path": "artifacts/verification/adversarial-eval/c2/provenance.json",
+      "public_case_path": "artifacts/verification/adversarial-eval/c2/inc_39338e35925c4650bb16445cb3761a3d.public-case.json",
+      "public_case_sha256": "ae6b7dd5adadbfe4df75cc6b31279e70e76990be945c87a88e4c15d07dba4b32",
+      "public_key_proof_path": "artifacts/verification/operator-session-20260717T074450Z/production-export-public-key.json",
+      "public_key_sha256": "9fc05d3c32c1b276a3e59f699ad73b8f9f332cc608ece3c8f5fd2cb2b665bc7d",
+      "sealed_key_proof_path": "artifacts/verification/paced-batches/paced-20260714T103240Z/local-export-public-key.json"
+    }
+  ],
+  "published_repairs": [
+    {
+      "archive_path": "artifacts/verification/operator-session-20260717T074450Z/real-model-cases/inc_03d46c72ab2f4ca8943f3fa5fd83b152.zip",
+      "incident_id": "inc_03d46c72ab2f4ca8943f3fa5fd83b152",
+      "verdict_sequence": [
+        "REMAND",
+        "CLEAR"
+      ]
+    },
+    {
+      "archive_path": "artifacts/verification/operator-session-20260717T074450Z/gallery/slot-a/inc_12c6394f8dc04a9d8bc807b8086a86b0.zip",
+      "incident_id": "inc_12c6394f8dc04a9d8bc807b8086a86b0",
+      "verdict_sequence": [
+        "CLEAR"
+      ]
+    },
+    {
+      "archive_path": "artifacts/verification/operator-session-20260717T074450Z/gallery/slot-b/inc_6a93501ecfb84b0aa6f244efd100c30d.zip",
+      "incident_id": "inc_6a93501ecfb84b0aa6f244efd100c30d",
+      "verdict_sequence": [
+        "REMAND",
+        "CLEAR"
+      ]
+    },
+    {
+      "archive_path": "artifacts/verification/operator-session-20260717T074450Z/gallery/slot-c/inc_2eb4b2837a264881a1e66c371da6e888.zip",
+      "incident_id": "inc_2eb4b2837a264881a1e66c371da6e888",
+      "verdict_sequence": [
+        "REMAND",
+        "CLEAR"
+      ]
+    },
+    {
+      "archive_path": "artifacts/verification/adversarial-eval/c2/inc_39338e35925c4650bb16445cb3761a3d.zip",
+      "incident_id": "inc_39338e35925c4650bb16445cb3761a3d",
+      "verdict_sequence": [
+        "CLEAR"
+      ]
+    }
+  ],
+  "sanitizer_vectors": [
+    {
+      "id": "san-01-direct-instruction-secret",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-01-direct-instruction-secret]",
+      "registry_id": "san-01-direct-instruction-secret",
+      "raw_sha256": "0db10caee50318feb4e01f326c4c48b37022798f269ec63d986a4339733292be"
+    },
+    {
+      "id": "san-02-bidi-inserted",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-02-bidi-inserted]",
+      "registry_id": "san-02-bidi-inserted",
+      "raw_sha256": "96442ac9a9c64d9e904071cf95561f9cfad997309e4c4b3654d03695fc949499"
+    },
+    {
+      "id": "san-03-bidi-reversed",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-03-bidi-reversed]",
+      "registry_id": "san-03-bidi-reversed",
+      "raw_sha256": "8c9c0eeb82a5251bed8388c9daf13d5f7e155ca0c3965befb7d332e7b830455f"
+    },
+    {
+      "id": "san-04-zero-width",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-04-zero-width]",
+      "registry_id": "san-04-zero-width",
+      "raw_sha256": "6053cdb10c1679f4a63d825fb17b3787aa42c61680c63a3c467d186072a9ab35"
+    },
+    {
+      "id": "san-05-base64",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-05-base64]",
+      "registry_id": "san-05-base64",
+      "raw_sha256": "c544d2de48a73e9a97ef45e3dc9be6cf01c09390f24dee06dc804f257c9df651"
+    },
+    {
+      "id": "san-06-xml-tool",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-06-xml-tool]",
+      "registry_id": "san-06-xml-tool",
+      "raw_sha256": "6cb7f75b09ce093ba916ea8e43fdf18f0fdee55e14489efc67a600c8d970296e"
+    },
+    {
+      "id": "san-07-authority-new-directions",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-07-authority-new-directions]",
+      "registry_id": "san-07-authority-new-directions",
+      "raw_sha256": "f1aa6273a25e8d1a1971eaa6bd9afadeb7c5c37ee4fb67e271e687a1ea609f7a"
+    },
+    {
+      "id": "san-08-authority-developer-override",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-08-authority-developer-override]",
+      "registry_id": "san-08-authority-developer-override",
+      "raw_sha256": "2896ed553e522696458da227f448634a78abd35593caa2fb201d8ae7ae67e02e"
+    },
+    {
+      "id": "san-09-authority-system-approve",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-09-authority-system-approve]",
+      "registry_id": "san-09-authority-system-approve",
+      "raw_sha256": "dd4f1490dca4130fd752a9481213462facb70f01baef95095baed6c7bb762a63"
+    },
+    {
+      "id": "san-10-multiline-instruction",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-10-multiline-instruction]",
+      "registry_id": "san-10-multiline-instruction",
+      "raw_sha256": "d275f949d96314bfde94a25574c57457f2655ab2b34a86bb07b443cef2f8f7f5"
+    },
+    {
+      "id": "san-11-blank-and-tab",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-11-blank-and-tab]",
+      "registry_id": "san-11-blank-and-tab",
+      "raw_sha256": "b81477b7a8183df4fa500e265c252f623c0963d363000ca04e37d44de62b5909"
+    },
+    {
+      "id": "san-12-split-policy-override",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-12-split-policy-override]",
+      "registry_id": "san-12-split-policy-override",
+      "raw_sha256": "262c5b0ea85e4be70a9a73f2b0210a5e4316c5d11be4ea95cb0b1944b804f327"
+    },
+    {
+      "id": "san-13-unicode-separators",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-13-unicode-separators]",
+      "registry_id": "san-13-unicode-separators",
+      "raw_sha256": "e4fbcd5a8d3a82f2707d20d010a426e5b217b52ffe165a6b54d08e354d5bf29c"
+    },
+    {
+      "id": "san-14-raw-range-binding",
+      "pytest_node_id": "backend/tests/unit/test_sanitizer.py::test_declared_adversarial_eval_vector_is_neutralized[san-14-raw-range-binding]",
+      "registry_id": "san-14-raw-range-binding",
+      "raw_sha256": "b57de69dac6a8feb4c3f6f6c34f3242195bc251f820d30e1fd56802a4cd69c86"
+    }
+  ],
+  "schema_version": "crosspatch.adversarial-corpus.v1",
+  "sealed_cohort": {
+    "gate_report_path": "artifacts/verification/paced-batches/paced-20260714T103240Z/gate-report.json",
+    "qualifying_runs": 10,
+    "runs_with_remand": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      8,
+      10
+    ]
+  }
+}

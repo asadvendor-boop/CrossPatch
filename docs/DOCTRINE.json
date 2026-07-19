@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "guarantees": [
+    {
+      "id": "bailiff-single-tool",
+      "guarantee": "Bailiff has one tool",
+      "detail": "The Bailiff can request only execute_warrant(id); it cannot compose shell, test, or mutation commands.",
+      "enforcing_module": "backend/src/crosspatch/mcp/broker_server.py",
+      "claim_id": "product.specialist-contract"
+    },
+    {
+      "id": "fail-closed-abstain",
+      "guarantee": "Refusal becomes ABSTAIN",
+      "detail": "Refusal, incomplete output, timeout, network failure, invalid schema, missing evidence, SDK failure, guardrail stop, and unknown verdict create no authority.",
+      "enforcing_module": "backend/src/crosspatch/orchestration/failures.py",
+      "claim_id": "product.fail-closed-abstain"
+    },
+    {
+      "id": "untrusted-evidence",
+      "guarantee": "Evidence stays untrusted",
+      "detail": "Models receive sanitized UNTRUSTED_EVIDENCE envelopes; raw evidence bytes remain outside model context.",
+      "enforcing_module": "backend/src/crosspatch/evidence/views.py",
+      "claim_id": "security.evidence-boundary"
+    },
+    {
+      "id": "bounded-review-escalation",
+      "guarantee": "Review escalation is bounded",
+      "detail": "A model-driven review escalation follows a recorded REMAND, materially changes the semantic output, and stops after two attempts per seat. Test-failure recovery and explicit human revision remain separate recorded triggers.",
+      "enforcing_module": "backend/src/crosspatch/orchestration/escalation.py",
+      "claim_id": "product.effort-escalation"
+    },
+    {
+      "id": "single-use-authority",
+      "guarantee": "Authority is single-use and hash-bound",
+      "detail": "Approval binds one warrant to its incident, evidence head, base and patch hashes, paths, plans, runner and environment digests, expiry, and one consumed nonce.",
+      "enforcing_module": "backend/src/crosspatch/broker/store.py",
+      "claim_id": "runtime.warrant-boundary"
+    },
+    {
+      "id": "publication-boundary",
+      "guarantee": "Publication is the read boundary",
+      "detail": "The judge surface reads only explicitly published, sanitized projections and exposes no approval, mutation, shell, test-run, secret, or raw-evidence capability.",
+      "enforcing_module": "backend/src/crosspatch/runtime/readers.py",
+      "claim_id": "runtime.mcp-zones"
+    }
+  ]
+}

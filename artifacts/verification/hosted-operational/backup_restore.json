@@ -1,0 +1,21 @@
+{
+  "check_id": "backup_restore",
+  "checked_at": "2026-07-19T16:55:22Z",
+  "command": "live backup followed by isolated Compose restore and snapshot comparison",
+  "deployment": {
+    "git_sha": "64032e87b6af9acf208abf98f3515e338d14054c",
+    "public_url": "https://crosspatch.repair"
+  },
+  "generator": "scripts/hosted_verifier.py",
+  "generator_action": "capture:backup_restore",
+  "machine_generated": true,
+  "observations": {
+    "backup_sha256": "aa8db689abeed8a61eff135adc047c99e6b3cfe9df6b4075bfb77964ab1403d1",
+    "integrity_checks_passed": true,
+    "isolated_project": "crosspatch-restore-4306e4027d46",
+    "restore_completed": true
+  },
+  "schema_version": "crosspatch.hosted-evidence.v1",
+  "source": "live deployment observation by the checked-in hosted verifier",
+  "status": "PASS"
+}

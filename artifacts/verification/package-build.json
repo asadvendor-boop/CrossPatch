@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-07-19T20:52:31Z",
+  "checks": [
+    {
+      "command": "uv lock --check",
+      "duration_ms": 18,
+      "exit_code": 0,
+      "output_bytes": 43,
+      "output_sha256": "3e3cde2b578ed290ba87684c0bba011e84767fddb962eda7bef83429ca67e3ec",
+      "output_truncated": false,
+      "started_at": "2026-07-19T20:52:29Z",
+      "status": "PASS",
+      "stderr": "Resolved 77 packages in 8ms\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "uv run --frozen --extra dev python scripts/verify_package_install.py",
+      "duration_ms": 2331,
+      "exit_code": 0,
+      "output_bytes": 412,
+      "output_sha256": "23493e3e4e57e8b6eceede9e8d857eba3cfcdfbe24517ee28af54500eac89c9c",
+      "output_truncated": false,
+      "started_at": "2026-07-19T20:52:29Z",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "{\n  \"machine_generated\": true,\n  \"schema_version\": 1,\n  \"sdist\": \"crosspatch-0.1.0.tar.gz\",\n  \"smoke_command\": [\n    \"crosspatch\",\n    \"--help\"\n  ],\n  \"smoke_output_sha256\": \"6b911de98e7b09d5c28ec0214e724968f9db9e610d2c8a588ff1bd15bcf60441\",\n  \"status\": \"PASS\",\n  \"wheel\": \"crosspatch-0.1.0-py3-none-any.whl\",\n  \"wheel_sha256\": \"2f1db78c27ad1e554d7e112f3ffc4f854edbea444c5c983f4501b46cb530bccf\"\n}\n",
+      "timed_out": false
+    }
+  ],
+  "generator": "scripts/verify-release.sh",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "machine_generated": true,
+  "schema_version": 1,
+  "source": "frozen dependency graphs and distributable source/wheel build",
+  "source_sha256": "8f04b5027d53da5c8827e24cbe186c514ca55db3b81d2d53e7801d2c108b2849",
+  "status": "PASS"
+}

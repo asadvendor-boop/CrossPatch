@@ -1,0 +1,266 @@
+.page {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+}
+
+.scopeCard,
+.workspace,
+.stateCard,
+.verifyNote {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-panel);
+  background: var(--ink-1);
+  box-shadow: var(--panel-shadow);
+}
+
+.scopeCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+  align-items: end;
+  gap: 28px;
+  padding: 24px;
+}
+
+.scopeCopy {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.scopeIcon,
+.verifyNote > svg {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+}
+
+.scopeIcon {
+  color: var(--accent-contrast);
+  background: var(--accent);
+}
+
+.scopeIcon svg,
+.verifyNote > svg {
+  width: 20px;
+  height: 20px;
+}
+
+.scopeCopy h2,
+.workspaceHeader h2,
+.verifyNote h2 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+}
+
+.scopeCopy p,
+.workspaceHeader p,
+.verifyNote p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.scopeForm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 10px;
+}
+
+.scopeForm label {
+  display: grid;
+  gap: 7px;
+}
+
+.scopeForm label > span,
+.workspaceHeader > div > span {
+  color: var(--dim);
+  font-size: 0.75rem;
+  font-weight: 760;
+  letter-spacing: 0.05em;
+}
+
+.scopeForm input,
+.scopeForm button,
+.exportControls button {
+  min-height: 46px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-control);
+  font: inherit;
+}
+
+.scopeForm input {
+  min-width: 0;
+  padding: 10px 12px;
+  color: var(--text);
+  background: var(--ink-0);
+}
+
+.scopeForm button,
+.exportControls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  color: var(--primary-color);
+  background: var(--primary-background);
+  font-weight: 780;
+}
+
+.scopeForm button svg,
+.exportControls button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.scopeForm button:disabled,
+.exportControls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.scopeForm input:focus-visible,
+.scopeForm button:focus-visible,
+.exportControls button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.stateCard,
+.exportState,
+.downloadState {
+  margin: 0;
+  padding: 18px 20px;
+  color: var(--muted);
+}
+
+.error {
+  border-color: var(--failure);
+  color: var(--failure);
+}
+
+.workspace {
+  overflow: hidden;
+}
+
+.workspaceHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--ink-2);
+}
+
+.workspaceHeader h2 {
+  margin-top: 5px;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+}
+
+.exportControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.exportState {
+  border-bottom: 1px solid var(--line);
+  background: var(--ink-0);
+}
+
+.downloadState {
+  border-bottom: 1px solid var(--verified);
+  color: var(--verified);
+  background: var(--ink-0);
+}
+
+.inspectorFrame {
+  padding: 24px;
+}
+
+.inspectorFrame > :global(.inspector-panel) {
+  min-height: 520px;
+}
+
+.verifyNote {
+  display: flex;
+  gap: 16px;
+  margin: 0 24px 24px;
+  padding: 20px;
+  box-shadow: none;
+}
+
+.verifyNote > svg {
+  color: var(--accent);
+  background: var(--ink-2);
+}
+
+.verifyNote code {
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.keyLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.keyLinks a {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-control);
+  padding: 8px 10px;
+  color: var(--text);
+  background: var(--ink-2);
+  font-size: 0.82rem;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.keyLinks a:hover {
+  border-color: var(--accent);
+}
+
+.keyLinks a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 860px) {
+  .scopeCard {
+    grid-template-columns: 1fr;
+  }
+
+  .workspaceHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .exportControls {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 620px) {
+  .scopeForm {
+    grid-template-columns: 1fr;
+  }
+
+  .inspectorFrame {
+    padding: 14px;
+  }
+
+  .verifyNote {
+    margin: 0 14px 14px;
+  }
+}

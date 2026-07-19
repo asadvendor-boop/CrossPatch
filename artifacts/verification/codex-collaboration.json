@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-07-19T20:50:07Z",
+  "checks": [
+    {
+      "command": "uv run --frozen --extra dev python scripts/verify_codex_collaboration.py --check",
+      "duration_ms": 42,
+      "exit_code": 0,
+      "output_bytes": 142,
+      "output_sha256": "82e1f9d729b783288a434ef6698832e77f905252145fc8c517d0ded88e3fec8e",
+      "output_truncated": false,
+      "started_at": "2026-07-19T20:50:07Z",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "{\n  \"local_session_metadata_checked\": 0,\n  \"receipt_count\": 2,\n  \"session_count\": 22,\n  \"slice_count\": 8,\n  \"status\": \"PASS\"\n}\n",
+      "timed_out": false
+    }
+  ],
+  "generator": "scripts/verify-release.sh",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "machine_generated": true,
+  "schema_version": 1,
+  "source": "privacy-minimized Codex task lineage and current test-receipt validation",
+  "source_sha256": "8f04b5027d53da5c8827e24cbe186c514ca55db3b81d2d53e7801d2c108b2849",
+  "status": "PASS"
+}

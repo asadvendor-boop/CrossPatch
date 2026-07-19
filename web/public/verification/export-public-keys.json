@@ -1,0 +1,30 @@
+{
+  "generator": "scripts/publish_export_public_keys.py",
+  "keys": [
+    {
+      "git_sha": "89431e259c60e3faa915a82a4cb209c72e0dc670",
+      "public_key_sha256": "9fc05d3c32c1b276a3e59f699ad73b8f9f332cc608ece3c8f5fd2cb2b665bc7d",
+      "role": "production",
+      "runtime_proof_verified": true,
+      "runtime_service": "api",
+      "source_artifact_path": "artifacts/verification/operator-session-20260717T074450Z/production-export-public-key.json",
+      "source_artifact_sha256": "76f21094dc0253d3523a61c03691989a0bb8e1408b28780a89de7509c03008e4",
+      "status": "PASS",
+      "url": "/verification/production-export-public-key.json"
+    },
+    {
+      "git_sha": "8a19ef1115bc1d665665a972f94d7c708a9dcbf5",
+      "public_key_sha256": "949bed254068654a5d5c125079c4631055709fafcac92e097b02a08cd87f9875",
+      "role": "sealed-cohort",
+      "runtime_proof_verified": true,
+      "runtime_service": "api",
+      "source_artifact_path": "artifacts/verification/paced-batches/paced-20260714T103240Z/local-export-public-key.json",
+      "source_artifact_sha256": "8dd8867d6ce59f9a3fd9d5768b28dee4aaab289d375d97be038a69b8602409a8",
+      "status": "PASS",
+      "url": "/verification/sealed-cohort-export-public-key.json"
+    }
+  ],
+  "machine_generated": true,
+  "private_seed_included": false,
+  "schema_version": "crosspatch.export-public-keys.v1"
+}

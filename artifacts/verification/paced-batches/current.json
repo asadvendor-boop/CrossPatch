@@ -1,0 +1,10 @@
+{
+  "batch_id": "paced-20260714T103240Z",
+  "batch_manifest_path": "artifacts/verification/paced-batches/paced-20260714T103240Z/batch-manifest.json",
+  "batch_manifest_sha256": "19df182fc05426be82585a996c40ba0b2d33662d57d72928f68236bbdc698492",
+  "completed_runs": 10,
+  "machine_generated": true,
+  "next_run": null,
+  "status": "DEMO_READY",
+  "updated_at": "2026-07-14T11:28:25Z"
+}

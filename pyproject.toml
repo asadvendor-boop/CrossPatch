@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crosspatch"
+version = "0.1.0"
+description = "Failure-first SRE incident review with deterministic, warrant-bound execution."
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = "MIT"
+authors = [
+  { name = "CrossPatch contributors" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "aiosqlite>=0.21,<1",
+  "alembic>=1.16,<2",
+  "asyncpg>=0.30,<1",
+  "cryptography==49.0.0",
+  "fastapi>=0.116,<1",
+  "httpx>=0.28,<1",
+  "mcp>=1.23,<2",
+  "openai-agents>=0.18.2,<0.19",
+  "psycopg[binary]==3.2.13",
+  "pydantic>=2.12,<3",
+  "pydantic-settings>=2.14,<3",
+  "sqlalchemy[asyncio]>=2.0.51,<2.1",
+  "typer>=0.16,<1",
+  "uvicorn[standard]>=0.35,<1",
+]
+
+[project.scripts]
+crosspatch = "crosspatch.cli.main:app"
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.5,<2",
+  "pillow==12.2.0",
+  "pytest-cov>=6,<8",
+  "pytest>=8.4,<9",
+  "pytest-asyncio>=1,<2",
+  "ruff>=0.12,<1",
+  "setuptools==80.9.0",
+]
+
+[tool.uv]
+required-version = "==0.10.12"
+
+[tool.setuptools.packages.find]
+where = ["backend/src"]
+include = ["crosspatch*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["backend/src", "victim/src"]
+testpaths = ["backend/tests", "victim/tests"]
+markers = [
+  "adversarial_eval_broker_expiry: authoritative expired-warrant eval registry",
+  "adversarial_eval_broker_reuse: authoritative warrant-reuse eval registry",
+  "adversarial_eval_broker_tamper: authoritative broker-tamper eval registry",
+  "adversarial_eval_sanitizer: authoritative sanitizer-vector eval registry",
+  "postgres: requires a real PostgreSQL server and CROSSPATCH_TEST_POSTGRES_DSN",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

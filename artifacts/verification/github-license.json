@@ -1,0 +1,83 @@
+{
+  "authenticated_ui_about_visual_readback": {
+    "api_inference_allowed": false,
+    "claim": "GitHub About visibly renders MIT",
+    "required_before_submission": true,
+    "status": "NOT_PERFORMED"
+  },
+  "blockers": [
+    "GitHub release branch HEAD does not match local HEAD"
+  ],
+  "checked_at": "2026-07-19T20:50:07Z",
+  "checks": {
+    "about_metadata": {
+      "actual_description": "Failure-first SRE incident review with deterministic, warrant-bound execution.",
+      "actual_topics": [
+        "agents-sdk",
+        "incident-response",
+        "mcp",
+        "openai",
+        "site-reliability-engineering"
+      ],
+      "expected_description": "Failure-first SRE incident review with deterministic, warrant-bound execution.",
+      "expected_topics": [
+        "agents-sdk",
+        "incident-response",
+        "mcp",
+        "openai",
+        "site-reliability-engineering"
+      ],
+      "status": "PASS"
+    },
+    "default_branch": {
+      "actual": "main",
+      "expected": "main",
+      "status": "PASS"
+    },
+    "remote_head_matches_local_head": {
+      "branch": "main",
+      "local_head": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+      "remote_head": "cb6fc245e314d2a03160f5988f16dea719ba9ec6",
+      "status": "FAIL"
+    },
+    "repository_readback": {
+      "actual": "asadvendor-boop/CrossPatch",
+      "expected": "asadvendor-boop/CrossPatch",
+      "html_url": "https://github.com/asadvendor-boop/CrossPatch",
+      "status": "PASS"
+    },
+    "repository_visibility": {
+      "actual": "public",
+      "expected": "public",
+      "status": "PASS"
+    },
+    "root_license_detected": {
+      "path": "LICENSE",
+      "sha": "8a2f943b6799dd13b3f5c47631cadf39fbdc6105",
+      "spdx_id": "MIT",
+      "status": "PASS"
+    }
+  },
+  "command": "./scripts/verify-github-license.sh",
+  "expected": {
+    "default_branch": "main",
+    "description": "Failure-first SRE incident review with deterministic, warrant-bound execution.",
+    "topics": [
+      "agents-sdk",
+      "incident-response",
+      "mcp",
+      "openai",
+      "site-reliability-engineering"
+    ],
+    "visibility": "public"
+  },
+  "generator": "scripts/verify-github-license.sh",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "machine_generated": true,
+  "repository": "asadvendor-boop/CrossPatch",
+  "schema_version": 1,
+  "source": "authenticated GitHub REST metadata, root license endpoint, and local git",
+  "source_sha256": "8f04b5027d53da5c8827e24cbe186c514ca55db3b81d2d53e7801d2c108b2849",
+  "status": "BLOCKED",
+  "verification_scope": "authenticated GitHub API and local git only"
+}

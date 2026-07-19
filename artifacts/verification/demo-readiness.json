@@ -1,0 +1,32 @@
+{
+  "batch_id": "paced-20260714T103240Z",
+  "checked_at": "2026-07-14T11:28:25Z",
+  "command": "scripts/evaluate-demo-readiness.sh --paced-batch-dir artifacts/verification/paced-batches/paced-20260714T103240Z",
+  "format": "crosspatch.demo-readiness.v1",
+  "fresh_model_outputs_required": true,
+  "gate_report_path": "artifacts/verification/paced-batches/paced-20260714T103240Z/gate-report.json",
+  "gate_report_sha256": "49e42723154cc6f7db08a57a931e8b03a6c79d4297ceb52f6a58c7022496be76",
+  "generated_at": "2026-07-14T11:28:25Z",
+  "generator": "scripts/evaluate-demo-readiness.sh",
+  "machine_generated": true,
+  "mock_or_substitute_runs": 0,
+  "module_generator": "crosspatch.evals.real_model.LiveEvaluationClient.run_once",
+  "module_provenance": "machine-generated from genuine fresh-output end-to-end runs",
+  "prompt_cache_allowed": true,
+  "qualifying_runs": 10,
+  "reason": null,
+  "requested_runs": 10,
+  "required_runs": 10,
+  "run_artifacts": [
+    {
+      "artifact_path": "artifacts/verification/paced-batches/paced-20260714T103240Z/combined-real-model-runs.jsonl",
+      "artifact_sha256": "346f3961470ffc98b9d2b3bccc27a95a568b14522bff2b77e76c3b24666638ce",
+      "generator": "crosspatch.evals.real_model.LiveEvaluationClient.run_once",
+      "provenance": "ten paced genuine-model run records"
+    }
+  ],
+  "runs_path": "artifacts/verification/paced-batches/paced-20260714T103240Z/combined-real-model-runs.jsonl",
+  "schema_version": 1,
+  "source": "OpenAI Responses API run records and signed case exports",
+  "status": "DEMO_READY"
+}

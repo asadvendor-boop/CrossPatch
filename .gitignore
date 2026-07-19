@@ -1,0 +1,42 @@
+# Local configuration and generated secrets
+.env
+.env.*
+!.env.example
+.crosspatch/
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+.venv-*/
+venv/
+build/
+dist/
+backups/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+web/coverage/
+web/playwright-report/
+web/test-results/
+.playwright-cli/
+*.tsbuildinfo
+npm-debug.log*
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Local agent workflow artifacts
+.superpowers/

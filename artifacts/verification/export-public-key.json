@@ -1,0 +1,20 @@
+{
+  "algorithm": "Ed25519",
+  "checked_at": "2026-07-19T20:52:34Z",
+  "distribution": "Distribute this public JSON separately from case archives and pin its SHA-256.",
+  "encoding": "raw-base64",
+  "generator": "scripts/generate_export_public_key.py",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "machine_generated": true,
+  "private_seed_included": false,
+  "proof_challenge_base64": "Y3Jvc3NwYXRjaC1leHBvcnQtcHVibGljLWtleS1ydW50aW1lLXByb29mLXYx",
+  "proof_signature_base64": "H7ky1sqQYigfEhtQ7fmyWZGsIozFU6zG6TQLnBvRvkt5Mhbkw3zz9c7hy7exjjpAYp5Yec6oqTz3gv6ccrurAw==",
+  "proof_signature_sha256": "a21c3cfc9e28f150a8deadf29452da7614c5718bb143c564c6e8328f6b47d966",
+  "public_key_base64": "r8PqZDR4gJB+REH+OKAOgp9ojUmJzJrJ+H0c5jyrEsk=",
+  "public_key_sha256": "d414914c42f576a25cde9340f71f493215e7f3e90b841120d94fd85582f3eae8",
+  "runtime_service": "api",
+  "schema_version": 1,
+  "self_test": "PASS",
+  "source": "public key and signed challenge read back from the running API service",
+  "status": "PASS"
+}

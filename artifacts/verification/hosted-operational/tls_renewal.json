@@ -1,0 +1,21 @@
+{
+  "check_id": "tls_renewal",
+  "checked_at": "2026-07-19T16:55:00Z",
+  "command": "inspect running Caddy, validate config, and read live certificate",
+  "deployment": {
+    "git_sha": "64032e87b6af9acf208abf98f3515e338d14054c",
+    "public_url": "https://crosspatch.repair"
+  },
+  "generator": "scripts/hosted_verifier.py",
+  "generator_action": "capture:tls_renewal",
+  "machine_generated": true,
+  "observations": {
+    "automation_enabled": true,
+    "certificate_not_after": "2026-10-13T21:23:54Z",
+    "hostname": "crosspatch.repair",
+    "renewal_probe_status": "PASS"
+  },
+  "schema_version": "crosspatch.hosted-evidence.v1",
+  "source": "live deployment observation by the checked-in hosted verifier",
+  "status": "PASS"
+}

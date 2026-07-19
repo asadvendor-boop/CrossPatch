@@ -1,0 +1,186 @@
+.page {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+}
+
+.scopeCard,
+.review,
+.stateCard {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-panel);
+  background: var(--ink-1);
+  box-shadow: var(--panel-shadow);
+}
+
+.scopeCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+  align-items: end;
+  gap: 28px;
+  padding: 24px;
+}
+
+.scopeCopy {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.scopeIcon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  color: var(--accent-contrast);
+  background: var(--accent);
+}
+
+.scopeIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.scopeCopy h2,
+.reviewHeader h2,
+.empty strong {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+}
+
+.scopeCopy p,
+.reviewHeader p,
+.empty p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.scopeForm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 10px;
+}
+
+.scopeForm label {
+  display: grid;
+  gap: 7px;
+}
+
+.scopeForm label > span,
+.reviewHeader > div > span {
+  color: var(--dim);
+  font-size: 0.75rem;
+  font-weight: 760;
+  letter-spacing: 0.05em;
+}
+
+.scopeForm input,
+.scopeForm button {
+  min-height: 46px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-control);
+  font: inherit;
+}
+
+.scopeForm input {
+  min-width: 0;
+  padding: 10px 12px;
+  color: var(--text);
+  background: var(--ink-0);
+}
+
+.scopeForm button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  color: var(--primary-color);
+  background: var(--primary-background);
+  font-weight: 780;
+}
+
+.scopeForm button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.scopeForm button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.scopeForm input:focus-visible,
+.scopeForm button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.stateCard {
+  margin: 0;
+  padding: 18px 20px;
+  color: var(--muted);
+}
+
+.error {
+  border-color: var(--failure);
+  color: var(--failure);
+}
+
+.review {
+  overflow: hidden;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--ink-2);
+}
+
+.reviewHeader h2 {
+  margin-top: 5px;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+}
+
+.review > :global(.approval-gate) {
+  margin: 24px;
+}
+
+.anatomy {
+  padding: 0 24px 24px;
+}
+
+.empty {
+  margin: 24px;
+  padding: 34px;
+  border: 1px dashed var(--line-strong);
+  background: var(--ink-0);
+}
+
+@media (max-width: 860px) {
+  .scopeCard {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .scopeForm {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .anatomy { padding: 0 12px 12px; }
+}

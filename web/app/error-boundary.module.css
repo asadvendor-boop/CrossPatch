@@ -1,0 +1,249 @@
+.document,
+.page {
+  --boundary-paper: #f3f1ea;
+  --boundary-surface: #fbfaf5;
+  --boundary-rule: #c8c1b2;
+  --boundary-rule-strong: #352f26;
+  --boundary-ink: #16130e;
+  --boundary-muted: #625b50;
+  --boundary-charcoal: #1b1915;
+  --boundary-charcoal-surface: #24211c;
+  --boundary-inverse: #f7f3e8;
+  --boundary-inverse-muted: #c4bdae;
+  --boundary-trace: #b8dc32;
+  --boundary-focus: #4937a8;
+}
+
+.document {
+  min-width: 0;
+  min-height: 100%;
+  color-scheme: light;
+  background: var(--boundary-paper);
+}
+
+.document *,
+.document *::before,
+.document *::after {
+  box-sizing: border-box;
+}
+
+.body {
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--boundary-ink);
+  background: var(--boundary-paper);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+.page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: clamp(20px, 5vw, 72px);
+  color: var(--boundary-ink);
+  background: var(--boundary-paper);
+}
+
+.record {
+  display: grid;
+  width: min(100%, 940px);
+  grid-template-columns: minmax(150px, 0.34fr) minmax(0, 1fr);
+  border: 1px solid var(--boundary-rule-strong);
+  border-radius: 2px;
+  background: var(--boundary-surface);
+  box-shadow: 4px 4px 0 #d8d1c4;
+}
+
+.index {
+  display: flex;
+  min-height: 510px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 28px;
+  color: var(--boundary-inverse);
+  background: var(--boundary-charcoal);
+}
+
+.brand {
+  display: block;
+  width: 52px;
+  height: 52px;
+}
+
+.indexCode,
+.eyebrow,
+.referenceLabel {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.indexCode {
+  margin: 0;
+  color: var(--boundary-inverse-muted);
+  writing-mode: vertical-rl;
+}
+
+.indexState {
+  margin: 0;
+  color: var(--boundary-inverse-muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.content {
+  display: grid;
+  align-content: center;
+  min-width: 0;
+  padding: clamp(32px, 6vw, 72px);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--boundary-muted);
+}
+
+.content h1 {
+  max-width: 690px;
+  margin: 0;
+  font-family: "Sora", "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-size: clamp(2.45rem, 6vw, 5.2rem);
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+}
+
+.summary {
+  max-width: 640px;
+  margin: 22px 0 0;
+  color: var(--boundary-muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.primary,
+.secondary,
+.tertiary {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--boundary-rule-strong);
+  border-radius: 2px;
+  padding: 12px 18px;
+  color: var(--boundary-ink);
+  font: inherit;
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--boundary-trace);
+  box-shadow: 3px 3px 0 var(--boundary-charcoal);
+}
+
+.secondary {
+  background: var(--boundary-surface);
+}
+
+.tertiary {
+  border-color: var(--boundary-rule);
+  background: var(--boundary-paper);
+}
+
+.primary:hover,
+.secondary:hover,
+.tertiary:hover {
+  border-color: var(--boundary-ink);
+  box-shadow: none;
+}
+
+.primary:focus-visible,
+.secondary:focus-visible,
+.tertiary:focus-visible {
+  outline: 3px solid var(--boundary-focus);
+  outline-offset: 3px;
+}
+
+.reference {
+  display: grid;
+  max-width: 640px;
+  gap: 6px;
+  margin-top: 34px;
+  border: 1px solid #4e493f;
+  padding: 14px 16px;
+  color: var(--boundary-inverse);
+  background: var(--boundary-charcoal-surface);
+}
+
+.referenceLabel {
+  color: var(--boundary-inverse-muted);
+}
+
+.reference code {
+  overflow-wrap: anywhere;
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 680px) {
+  .page {
+    padding: 12px;
+  }
+
+  .record {
+    grid-template-columns: 1fr;
+  }
+
+  .index {
+    min-height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 20px;
+  }
+
+  .indexCode {
+    writing-mode: initial;
+  }
+
+  .indexState {
+    max-width: 16ch;
+    text-align: right;
+  }
+
+  .content {
+    padding: 34px 22px;
+  }
+}
+
+@media (max-width: 440px) {
+  .indexCode {
+    display: none;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary,
+  .secondary,
+  .tertiary {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}

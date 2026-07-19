@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-07-19T20:50:08Z",
+  "checks": [
+    {
+      "command": "uv run --frozen --extra dev python scripts/generate_sbom.py --output artifacts/verification/sbom.cdx.json",
+      "duration_ms": 57,
+      "exit_code": 0,
+      "output_bytes": 15,
+      "output_sha256": "3cadabec897fd961a14ae0f164fbcc2d872da835fd7c259079ac6fab44594c72",
+      "output_truncated": false,
+      "started_at": "2026-07-19T20:50:07Z",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "uv run --frozen --extra dev python scripts/scan_build_context.py --output artifacts/verification/build-context-secret-scan.json",
+      "duration_ms": 783,
+      "exit_code": 0,
+      "output_bytes": 15,
+      "output_sha256": "3cadabec897fd961a14ae0f164fbcc2d872da835fd7c259079ac6fab44594c72",
+      "output_truncated": false,
+      "started_at": "2026-07-19T20:50:07Z",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    }
+  ],
+  "generator": "scripts/verify-release.sh",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "machine_generated": true,
+  "schema_version": 1,
+  "source": "deterministic lockfile SBOM and pre-build build-context secret scan",
+  "source_sha256": "8f04b5027d53da5c8827e24cbe186c514ca55db3b81d2d53e7801d2c108b2849",
+  "status": "PASS"
+}

@@ -1,0 +1,97 @@
+{
+  "blockers": [
+    "CROSSPATCH_JUDGE_TOKEN credential",
+    "CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration",
+    "TLS renewal schedule/readback evidence is missing or unverified",
+    "authenticated GitHub About visual readback is missing or unverified",
+    "authenticated GitHub MIT metadata readback is unverified",
+    "isolated backup/restore drill evidence is missing or unverified",
+    "judge-token persistence across restart evidence is missing or unverified",
+    "live restart-policy readback evidence is missing or unverified",
+    "uptime monitor evidence through 2026-08-13T07:00:00Z is missing"
+  ],
+  "checked_at": "2026-07-19T20:50:07Z",
+  "checks": {
+    "authenticated_judge_mcp": {
+      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
+      "status": "BLOCKED"
+    },
+    "backup_restore": {
+      "detail": "machine-generated isolated backup/restore drill evidence is missing",
+      "status": "BLOCKED"
+    },
+    "dns": {
+      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
+      "status": "BLOCKED"
+    },
+    "github_about_visual": {
+      "detail": "machine-generated authenticated GitHub About visual readback evidence is missing",
+      "status": "BLOCKED"
+    },
+    "github_mit_metadata": {
+      "detail": "authenticated GitHub API evidence is not in a verified state",
+      "evidence": {
+        "artifact_path": "artifacts/verification/github-license.json",
+        "artifact_sha256": "a8fa359ee3086cfef466a3a2702821abe602f4f7dee7489cc8b4b04172785a72",
+        "generator": "scripts/verify-github-license.sh",
+        "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+        "reported_status": "BLOCKED",
+        "repository": "asadvendor-boop/CrossPatch",
+        "validation_errors": [
+          "GitHub API evidence must report API_VERIFIED",
+          "one or more GitHub API checks did not pass",
+          "GitHub API artifact contains blockers"
+        ]
+      },
+      "status": "BLOCKED"
+    },
+    "persistent_token": {
+      "detail": "machine-generated judge-token persistence across restart evidence is missing",
+      "status": "BLOCKED"
+    },
+    "private_service_ports_unreachable": {
+      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
+      "status": "BLOCKED"
+    },
+    "public_health": {
+      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
+      "status": "BLOCKED"
+    },
+    "reachable_url": {
+      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
+      "status": "BLOCKED"
+    },
+    "restart_policy": {
+      "detail": "machine-generated live restart-policy readback evidence is missing",
+      "status": "BLOCKED"
+    },
+    "tls": {
+      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
+      "status": "BLOCKED"
+    },
+    "tls_renewal": {
+      "detail": "machine-generated TLS renewal schedule/readback evidence is missing",
+      "status": "BLOCKED"
+    },
+    "uptime_monitor": {
+      "detail": "uptime monitor credential/evidence through the required window is missing",
+      "evidence": {
+        "active_through": null,
+        "monitor_id": null
+      },
+      "status": "BLOCKED"
+    }
+  },
+  "command": "./scripts/verify-hosted.sh --output artifacts/verification/hosted-acceptance.json",
+  "deployment_claimed": false,
+  "deployment_git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "generator": "scripts/verify-hosted.sh",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "machine_generated": true,
+  "public_url": null,
+  "required_through": "2026-08-13T07:00:00Z",
+  "schema_version": 1,
+  "source": "external DNS, TLS, HTTP, authenticated MCP, and monitor probes",
+  "source_sha256": "8f04b5027d53da5c8827e24cbe186c514ca55db3b81d2d53e7801d2c108b2849",
+  "status": "BLOCKED"
+}

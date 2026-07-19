@@ -1,0 +1,246 @@
+{
+  "abstain_runs": [],
+  "batch_id": "paced-20260714T103240Z",
+  "cached_input_ratio": 0.3327372777163817,
+  "case_audits": [
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_cb4a4d153e844e8282a7cdd80784faeb",
+      "preapproval_remands": 1,
+      "reasoning_escalations": 1,
+      "receipt_id": "test_d02d4e69ad644837bf2dc054350402e3",
+      "repair_passed": false,
+      "run_number": 1,
+      "verdict_sequence": [
+        "REMAND",
+        "CLEAR"
+      ]
+    },
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_65eecc0b3e104b3a80443c81a7947195",
+      "preapproval_remands": 1,
+      "reasoning_escalations": 1,
+      "receipt_id": "test_6e36941832a84f91b1196324b77c282b",
+      "repair_passed": false,
+      "run_number": 2,
+      "verdict_sequence": [
+        "REMAND",
+        "CLEAR"
+      ]
+    },
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_d1170b7fc0614bd2b5f26476326f47bc",
+      "preapproval_remands": 0,
+      "reasoning_escalations": 0,
+      "receipt_id": "test_105afe451fa3410e8e089817909f7672",
+      "repair_passed": false,
+      "run_number": 3,
+      "verdict_sequence": [
+        "CLEAR"
+      ]
+    },
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_e032c6cde04f44b8a5dc6371c8c6f690",
+      "preapproval_remands": 2,
+      "reasoning_escalations": 2,
+      "receipt_id": "test_85d1a55ca8cd47c0b90f7ad6df6e1895",
+      "repair_passed": false,
+      "run_number": 4,
+      "verdict_sequence": [
+        "REMAND",
+        "REMAND",
+        "CLEAR"
+      ]
+    },
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_75992906fca84ae2b9ef849a2bfbe924",
+      "preapproval_remands": 1,
+      "reasoning_escalations": 1,
+      "receipt_id": "test_3d1e9f6c224c40028a75156cbd982c5f",
+      "repair_passed": false,
+      "run_number": 5,
+      "verdict_sequence": [
+        "REMAND",
+        "CLEAR"
+      ]
+    },
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_716b4b3b846e4957a2418e636f2d0ee8",
+      "preapproval_remands": 1,
+      "reasoning_escalations": 1,
+      "receipt_id": "test_908f74a384b94040bb5d9e1df086fe4e",
+      "repair_passed": false,
+      "run_number": 6,
+      "verdict_sequence": [
+        "REMAND",
+        "CLEAR"
+      ]
+    },
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_f8f4d883b7f443fb96df3b56c18832d7",
+      "preapproval_remands": 0,
+      "reasoning_escalations": 0,
+      "receipt_id": "test_a9ca5effb8254919b67c00fe1e4bb3ac",
+      "repair_passed": false,
+      "run_number": 7,
+      "verdict_sequence": [
+        "CLEAR"
+      ]
+    },
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_ccaad8cf6d224bac8b87992eccf849e3",
+      "preapproval_remands": 1,
+      "reasoning_escalations": 1,
+      "receipt_id": "test_45e796562780448ca3bb30397cb8d7d5",
+      "repair_passed": false,
+      "run_number": 8,
+      "verdict_sequence": [
+        "REMAND",
+        "CLEAR"
+      ]
+    },
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_748385738cef48d9b576bc253794cfa1",
+      "preapproval_remands": 0,
+      "reasoning_escalations": 0,
+      "receipt_id": "test_9d79ad978b7442b1a1961664812874f3",
+      "repair_passed": false,
+      "run_number": 9,
+      "verdict_sequence": [
+        "CLEAR"
+      ]
+    },
+    {
+      "abstain": false,
+      "execution_failure_events": [],
+      "final_state": "VERIFIED",
+      "first_patch_failed": false,
+      "incident_id": "inc_eeced013ef0340f6964915e4545ceaae",
+      "preapproval_remands": 1,
+      "reasoning_escalations": 1,
+      "receipt_id": "test_4ee1000b1e424787beb94ac5c59377d4",
+      "repair_passed": false,
+      "run_number": 10,
+      "verdict_sequence": [
+        "REMAND",
+        "CLEAR"
+      ]
+    }
+  ],
+  "checked_at": "2026-07-14T11:28:25Z",
+  "execution_failure_runs": [],
+  "first_patch_failure_repair_pass_runs": [],
+  "generator": "scripts/evaluate-demo-readiness.sh",
+  "incident_ids": [
+    "inc_cb4a4d153e844e8282a7cdd80784faeb",
+    "inc_65eecc0b3e104b3a80443c81a7947195",
+    "inc_d1170b7fc0614bd2b5f26476326f47bc",
+    "inc_e032c6cde04f44b8a5dc6371c8c6f690",
+    "inc_75992906fca84ae2b9ef849a2bfbe924",
+    "inc_716b4b3b846e4957a2418e636f2d0ee8",
+    "inc_f8f4d883b7f443fb96df3b56c18832d7",
+    "inc_ccaad8cf6d224bac8b87992eccf849e3",
+    "inc_748385738cef48d9b576bc253794cfa1",
+    "inc_eeced013ef0340f6964915e4545ceaae"
+  ],
+  "machine_generated": true,
+  "pass_rate": 1.0,
+  "preapproval_remand_runs": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    8,
+    10
+  ],
+  "qualifying_runs": 10,
+  "reasoning_escalations": 8,
+  "schema_failures": 0,
+  "seat_totals": {
+    "Bailiff": {
+      "cached_input_tokens": 30507,
+      "calls": 20,
+      "cost_usd": 0.07134769999999999,
+      "input_tokens": 92258,
+      "latency_ms": 177915,
+      "output_tokens": 1091,
+      "schema_failures": 0
+    },
+    "Counsel": {
+      "cached_input_tokens": 81508,
+      "calls": 18,
+      "cost_usd": 1.1395745,
+      "input_tokens": 309521,
+      "latency_ms": 326965,
+      "output_tokens": 36611,
+      "schema_failures": 0
+    },
+    "Inspector": {
+      "cached_input_tokens": 0,
+      "calls": 20,
+      "cost_usd": 0.475185,
+      "input_tokens": 156648,
+      "latency_ms": 76775,
+      "output_tokens": 5571,
+      "schema_failures": 0
+    },
+    "Magistrate": {
+      "cached_input_tokens": 98512,
+      "calls": 18,
+      "cost_usd": 1.0014109999999998,
+      "input_tokens": 237577,
+      "latency_ms": 233144,
+      "output_tokens": 8561,
+      "schema_failures": 0
+    },
+    "Prosecutor": {
+      "cached_input_tokens": 196238,
+      "calls": 42,
+      "cost_usd": 0.3241907999999999,
+      "input_tokens": 426477,
+      "latency_ms": 137858,
+      "output_tokens": 12388,
+      "schema_failures": 0
+    }
+  },
+  "signed_exports_valid": 10,
+  "total_cost_usd": 3.011709,
+  "unique_incident_ids": true,
+  "unique_response_ids": true
+}

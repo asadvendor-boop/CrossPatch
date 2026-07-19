@@ -1,0 +1,467 @@
+{
+  "continuous_build_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+  "generated_at": "2026-07-19T19:22:47Z",
+  "generator": "scripts/verify_codex_collaboration.py",
+  "planning_session_id": "019f5c65-f787-7e63-b523-b8f4065a7819",
+  "privacy": "Only session identifiers, task lineage, dates, roles, repository-match proof, safe metadata fingerprints, and current regression-source hashes are retained; transcript bodies, local paths, and private Git history are excluded.",
+  "receipts": [
+    {
+      "finding": "The API returned PENDING_APPROVAL while the UI recognized only a fixture-shaped pending value and failed to reconcile the authoritative status.",
+      "finding_session_id": "019f5d69-b112-7492-88bf-a9649615e307",
+      "receipt_id": "warrant-status-ui",
+      "regression_tests": [
+        {
+          "path": "web/tests/components/api.test.ts",
+          "source_sha256": "bfe6118b4698918307055703249f2fb1aa690903e972a29d6d5ec2858950317d",
+          "test_name": "discovers and decodes the exact pending warrant bindings"
+        },
+        {
+          "path": "web/tests/components/incident-room.test.tsx",
+          "source_sha256": "c22ef30cceee3f1bb0a2b75507ccdb87c0ea2b4b9b4f7ba4efc545277df95bf9",
+          "test_name": "refetches the room after approval and displays the authoritative warrant status"
+        }
+      ]
+    },
+    {
+      "finding": "Candidate-controlled import-time exit zero could be confused with proof unless success came from the trusted external supervisor and oracle.",
+      "finding_session_id": "019f5d4e-1010-7580-a06b-d53593c1c29b",
+      "receipt_id": "candidate-exit-code-spoof",
+      "regression_tests": [
+        {
+          "path": "backend/tests/security/test_candidate_spoof.py",
+          "source_sha256": "4329525bf52b3d10923f37518c70537610f11bd093068db81a7a6425e8e03df6",
+          "test_name": "test_import_time_zero_exit_and_forged_stdout_cannot_spoof_success"
+        }
+      ]
+    }
+  ],
+  "role_method": "Conservative classification from the recorded task path and bounded task brief; role is not a native session_meta field.",
+  "schema_version": 2,
+  "sessions": [
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-15T13:45:35.234Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": null,
+      "repository_cwd_verified": true,
+      "role": "plan",
+      "session_id": "019f5c65-f787-7e63-b523-b8f4065a7819",
+      "session_meta_sha256": "3223df15c5af2deabe0cebed352dfc818a84945540fe0707f54175e6935d36b4",
+      "started_at": "2026-07-13T16:53:34.257Z",
+      "task_path": "/root"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-16T09:43:43.128Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": null,
+      "repository_cwd_verified": true,
+      "role": "implement",
+      "session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "session_meta_sha256": "984c9bff8c2ec012b4d1db05680b94799790565efc67423daf56142c353d8484",
+      "started_at": "2026-07-13T19:06:08.223Z",
+      "task_path": "/root"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T21:30:30.405Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5c65-f787-7e63-b523-b8f4065a7819",
+      "repository_cwd_verified": true,
+      "role": "plan",
+      "session_id": "019f5c9e-1d1c-73e2-8228-2c236dce5765",
+      "session_meta_sha256": "da9f231575757642ba8620ab11302f0de84ad8f25a0578724e5b2f3de4966ab5",
+      "started_at": "2026-07-13T17:54:53.893Z",
+      "task_path": "/root/approach_evidence"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T21:44:17.036Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5c65-f787-7e63-b523-b8f4065a7819",
+      "repository_cwd_verified": true,
+      "role": "plan",
+      "session_id": "019f5ce1-fe00-7113-93f1-4a694f9ebce7",
+      "session_meta_sha256": "0e0e95ab906f770f3c3a4339e261aa5a0e9f44d6b87b2e3311d8273d7a0a0d81",
+      "started_at": "2026-07-13T19:09:02.375Z",
+      "task_path": "/root/mcp_security_plan"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T19:44:17.440Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "plan",
+      "session_id": "019f5cfc-e4ae-7c41-80f1-3f03afea6cdf",
+      "session_meta_sha256": "8d2a735c20645bad294b4b2d8dc069306749c1e6cd52917080f777596f8f7e91",
+      "started_at": "2026-07-13T19:38:25.356Z",
+      "task_path": "/root/sdk_api_research"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T20:14:18.328Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "implement",
+      "session_id": "019f5d17-7d99-7520-9686-fb54e941697e",
+      "session_meta_sha256": "15e0cefb8f834135d5047e4cc06fffa9b115ff0f032ebf801971d2c94806ff1b",
+      "started_at": "2026-07-13T20:07:28.441Z",
+      "task_path": "/root/task3_evidence"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T21:12:03.968Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "implement",
+      "session_id": "019f5d3d-42e6-7b22-ade6-e7cb591cf014",
+      "session_meta_sha256": "fa02df8b4b80a2db25cc96a52d79923e45a0ece92b2a26eb26fd4528577f7504",
+      "started_at": "2026-07-13T20:48:43.778Z",
+      "task_path": "/root/mcp_agents"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T21:11:42.506Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "implement",
+      "session_id": "019f5d3d-bd16-7b21-a7ec-8eeadff38954",
+      "session_meta_sha256": "921e1d0f6b2d2ee24bf7eba7ca9132bb4190add6e1d5963fa2492aa9d2fbca66",
+      "started_at": "2026-07-13T20:49:15.053Z",
+      "task_path": "/root/industrial_ui"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T21:15:03.203Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f5d4e-1010-7580-a06b-d53593c1c29b",
+      "session_meta_sha256": "267f5f94491898b069e5bd5fc05c88ed578a473d23ec1d66b4f28ac5b68d35ab",
+      "started_at": "2026-07-13T21:07:04.870Z",
+      "task_path": "/root/broker_security_review"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T21:54:25.907Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5c65-f787-7e63-b523-b8f4065a7819",
+      "repository_cwd_verified": true,
+      "role": "implement",
+      "session_id": "019f5d69-b112-7492-88bf-a9649615e307",
+      "session_meta_sha256": "9d11c6c935a94e118d24b32c36695192ae0e9eb740c98a142afe262b34cbd1d5",
+      "started_at": "2026-07-13T21:37:15.570Z",
+      "task_path": "/root/ui_projection_fix"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T23:18:28.283Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "implement",
+      "session_id": "019f5dbc-bd9a-7972-8079-b9258d785749",
+      "session_meta_sha256": "0b7fdc587d870d66a9c2d773657c925d57c1e6ac6d84fcf8f757011e2b2e5480",
+      "started_at": "2026-07-13T23:07:58.258Z",
+      "task_path": "/root/sdk_features_finish"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T23:31:07.385Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5c65-f787-7e63-b523-b8f4065a7819",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f5dc7-845a-7602-9a97-a6cf900e8e63",
+      "session_meta_sha256": "9e39349e7a851325140fced5b442c2f60f3875fce32a82005698c7e048aef31f",
+      "started_at": "2026-07-13T23:19:44.496Z",
+      "task_path": "/root/review_candidate_commit"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-13T23:43:02.931Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5c65-f787-7e63-b523-b8f4065a7819",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f5dd6-2066-7301-ab0b-6e0b534f0cb2",
+      "session_meta_sha256": "bfeca1114cf3a51b70d24793ed6e345b2cafc8d8294561fb2c10ccc58828d99c",
+      "started_at": "2026-07-13T23:35:41.952Z",
+      "task_path": "/root/scan_mcp_zones"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-14T01:19:19.822Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "plan",
+      "session_id": "019f5e30-c4b4-76f2-b849-364079e312d2",
+      "session_meta_sha256": "352982934e316fff0df6767fec2eaac5d05df77d6ef3869720461d46c6b2ab23",
+      "started_at": "2026-07-14T01:14:42.251Z",
+      "task_path": "/root/strict_verifier_design"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-14T01:49:13.265Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f5e48-18ce-7ab3-9e5d-200af2a9b08b",
+      "session_meta_sha256": "0b4b75643c7ace5e48c92bb5b99fa1a0b9c5b4041a50b537c27c19241bf8d297",
+      "started_at": "2026-07-14T01:40:11.109Z",
+      "task_path": "/root/release_security_audit"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-14T02:30:54.608Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5c65-f787-7e63-b523-b8f4065a7819",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f5e6e-0d0e-7aa2-b870-27861cb65cee",
+      "session_meta_sha256": "6871f77733f14b6e5145627623e939b46c4275c7d956751bafbf9d3be881c0fa",
+      "started_at": "2026-07-14T02:21:38.471Z",
+      "task_path": "/root/scan_db_domain"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-14T12:07:39.941Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f6084-7ed4-73e1-be83-1aa00e36f847",
+      "session_meta_sha256": "f1ba38b0c39660c09d86d79209e6faf5b5156987dd26177ce1ce7609029d8c89",
+      "started_at": "2026-07-14T12:05:23.823Z",
+      "task_path": "/root/scan_agents_core_011"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-14T12:13:32.364Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f6086-b240-7f22-9dc7-fa4dd68d2d2f",
+      "session_meta_sha256": "9cd45f3caa0ecb1f419b806ba9f6c8b13226d50e97be32b8c659a62210c1d8aa",
+      "started_at": "2026-07-14T12:07:48.059Z",
+      "task_path": "/root/scan_evidence_eval_019"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-15T19:14:42.236Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f6723-50f6-7e91-8408-36e0808bbe62",
+      "session_meta_sha256": "292a247366af6e3b060a1199291ac756e566e325eb729fd60c922683c01ca588",
+      "started_at": "2026-07-15T18:56:35.597Z",
+      "task_path": "/root/phase2_final_ui_review"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-15T19:39:09.397Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f6748-ef03-7913-ae8e-1191475e2324",
+      "session_meta_sha256": "e849a992d8c4d1921a9a71d05622bb72698166e4f56677a2cc8d2d990cc22b65",
+      "started_at": "2026-07-15T19:37:40.892Z",
+      "task_path": "/root/final_backend_matrix"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-15T19:39:50.605Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f6749-2c0c-7e22-b83c-afabf5f61c74",
+      "session_meta_sha256": "76a26f2ec7b02bf7fc2e6803de533ff13f3db0c5f50bea123375488868293100",
+      "started_at": "2026-07-15T19:37:56.512Z",
+      "task_path": "/root/final_web_matrix"
+    },
+    {
+      "cli_version": "0.144.2",
+      "observed_through": "2026-07-15T19:40:18.037Z",
+      "originator": "Codex Desktop",
+      "parent_session_id": "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+      "repository_cwd_verified": true,
+      "role": "adversarial_review",
+      "session_id": "019f6749-632a-7ab0-b09f-cee5b9afedd0",
+      "session_meta_sha256": "1ab3da423910549fd56edf5713216edf73e06c2145f87c40b3f65ccc025ee103",
+      "started_at": "2026-07-15T19:38:10.623Z",
+      "task_path": "/root/final_release_matrix"
+    }
+  ],
+  "slices": [
+    {
+      "label": "Domain and state machine",
+      "repository_paths": [
+        "backend/src/crosspatch/domain",
+        "backend/src/crosspatch/db/repositories.py"
+      ],
+      "session_ids": {
+        "adversarial_review": [
+          "019f5e6e-0d0e-7aa2-b870-27861cb65cee"
+        ],
+        "implement": [
+          "019f5cdf-55ad-74f3-9a6c-af64f2478847"
+        ],
+        "plan": [
+          "019f5c65-f787-7e63-b523-b8f4065a7819"
+        ]
+      },
+      "slice_id": "domain-state-machine"
+    },
+    {
+      "label": "Hostile-evidence sanitizer and artifact boundary",
+      "repository_paths": [
+        "backend/src/crosspatch/evidence"
+      ],
+      "session_ids": {
+        "adversarial_review": [
+          "019f6086-b240-7f22-9dc7-fa4dd68d2d2f"
+        ],
+        "implement": [
+          "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+          "019f5d17-7d99-7520-9686-fb54e941697e"
+        ],
+        "plan": [
+          "019f5c9e-1d1c-73e2-8228-2c236dce5765"
+        ]
+      },
+      "slice_id": "hostile-evidence-sanitizer"
+    },
+    {
+      "label": "Canonical warrant and deterministic broker",
+      "repository_paths": [
+        "backend/src/crosspatch/broker"
+      ],
+      "session_ids": {
+        "adversarial_review": [
+          "019f5d4e-1010-7580-a06b-d53593c1c29b"
+        ],
+        "implement": [
+          "019f5cdf-55ad-74f3-9a6c-af64f2478847"
+        ],
+        "plan": [
+          "019f5c65-f787-7e63-b523-b8f4065a7819"
+        ]
+      },
+      "slice_id": "warrant-broker"
+    },
+    {
+      "label": "Candidate isolation and trusted external verification",
+      "repository_paths": [
+        "backend/src/crosspatch/runner"
+      ],
+      "session_ids": {
+        "adversarial_review": [
+          "019f5d4e-1010-7580-a06b-d53593c1c29b",
+          "019f5dc7-845a-7602-9a97-a6cf900e8e63"
+        ],
+        "implement": [
+          "019f5cdf-55ad-74f3-9a6c-af64f2478847"
+        ],
+        "plan": [
+          "019f5c65-f787-7e63-b523-b8f4065a7819"
+        ]
+      },
+      "slice_id": "candidate-isolation"
+    },
+    {
+      "label": "OpenAI Agents SDK wiring",
+      "repository_paths": [
+        "backend/src/crosspatch/agents",
+        "backend/src/crosspatch/orchestration"
+      ],
+      "session_ids": {
+        "adversarial_review": [
+          "019f6084-7ed4-73e1-be83-1aa00e36f847"
+        ],
+        "implement": [
+          "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+          "019f5d3d-42e6-7b22-ade6-e7cb591cf014",
+          "019f5dbc-bd9a-7972-8079-b9258d785749"
+        ],
+        "plan": [
+          "019f5cfc-e4ae-7c41-80f1-3f03afea6cdf"
+        ]
+      },
+      "slice_id": "agents-sdk"
+    },
+    {
+      "label": "Evidence, Broker, and Judge MCP zones",
+      "repository_paths": [
+        "backend/src/crosspatch/mcp"
+      ],
+      "session_ids": {
+        "adversarial_review": [
+          "019f5dd6-2066-7301-ab0b-6e0b534f0cb2"
+        ],
+        "implement": [
+          "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+          "019f5d3d-42e6-7b22-ade6-e7cb591cf014"
+        ],
+        "plan": [
+          "019f5ce1-fe00-7113-93f1-4a694f9ebce7"
+        ]
+      },
+      "slice_id": "mcp-zones"
+    },
+    {
+      "label": "Tracepaper web UI and incident room",
+      "repository_paths": [
+        "web"
+      ],
+      "session_ids": {
+        "adversarial_review": [
+          "019f6723-50f6-7e91-8408-36e0808bbe62"
+        ],
+        "implement": [
+          "019f5cdf-55ad-74f3-9a6c-af64f2478847",
+          "019f5d3d-bd16-7b21-a7ec-8eeadff38954",
+          "019f5d69-b112-7492-88bf-a9649615e307"
+        ],
+        "plan": [
+          "019f5c65-f787-7e63-b523-b8f4065a7819"
+        ]
+      },
+      "slice_id": "web-ui"
+    },
+    {
+      "label": "Release verification and evidence",
+      "repository_paths": [
+        "scripts/release_verifier.py",
+        "scripts/verification_lib.py",
+        "artifacts/verification"
+      ],
+      "session_ids": {
+        "adversarial_review": [
+          "019f5e48-18ce-7ab3-9e5d-200af2a9b08b",
+          "019f6748-ef03-7913-ae8e-1191475e2324",
+          "019f6749-2c0c-7e22-b83c-afabf5f61c74",
+          "019f6749-632a-7ab0-b09f-cee5b9afedd0"
+        ],
+        "implement": [
+          "019f5cdf-55ad-74f3-9a6c-af64f2478847"
+        ],
+        "plan": [
+          "019f5e30-c4b4-76f2-b849-364079e312d2"
+        ]
+      },
+      "slice_id": "release-verification"
+    }
+  ],
+  "source": "privacy-minimized local Codex session metadata and current repository test receipts"
+}

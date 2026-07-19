@@ -1,0 +1,31 @@
+{
+  "allowed_generated_prefixes": [
+    "artifacts/verification",
+    "docs/CLAIM_MAP.json"
+  ],
+  "checked_at": "2026-07-19T20:51:55Z",
+  "checks": [
+    {
+      "command": "git source identity vs HEAD excluding generator-owned evidence",
+      "duration_ms": 0,
+      "exit_code": 0,
+      "output_bytes": 0,
+      "output_sha256": "97e7bc0fdaaf8f6019c4b12f9a6943855c34d292b60568233bfc2f6fb4121646",
+      "output_truncated": false,
+      "started_at": "2026-07-19T20:51:55Z",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    }
+  ],
+  "generator": "scripts/verify-release.sh",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "machine_generated": true,
+  "observed_generated_path_count": 9,
+  "observed_generated_paths_sha256": "97e7bc0fdaaf8f6019c4b12f9a6943855c34d292b60568233bfc2f6fb4121646",
+  "schema_version": 1,
+  "source": "tracked and untracked build source matched Git HEAD; only verifier-owned generated evidence differed",
+  "source_sha256": "8f04b5027d53da5c8827e24cbe186c514ca55db3b81d2d53e7801d2c108b2849",
+  "status": "PASS"
+}

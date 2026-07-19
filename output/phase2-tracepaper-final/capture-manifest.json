@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "machine_generated": true,
+  "generator": "web/tests/e2e/gallery-capture.spec.ts",
+  "capture_method": "playwright.page.screenshot",
+  "captured_at": "2026-07-16T08:19:38.424Z",
+  "captures": [
+    {
+      "path": "output/phase2-tracepaper-final/approvals-1280x720.png",
+      "sha256": "07e173cbb5ddc8ca541110158dbef189806a695bbacf996f06e81d7cbc63c070",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/approvals",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/approvals-1440x900.png",
+      "sha256": "5abd4b37d2e7af7769f6dfec56b801c90b25ed0c1e3fe0a72b4ae7799e687ff7",
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/approvals",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/approvals-320x900.png",
+      "sha256": "8d8f1f3e119235f719fb7c2aae7c4016a1e97e16f285d9060c4ab80c5e61127e",
+      "width": 320,
+      "height": 900,
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/approvals",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/artifacts-1280x720.png",
+      "sha256": "dd683787114640caed01dad9c803b652c0aa2b1aa50bb7149132ad99c3af0d1b",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/artifacts",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/artifacts-1440x900.png",
+      "sha256": "93bb119b4f52df4f8ba702b024d40614ffa7db4167d02611f611385f53f81926",
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/artifacts",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/artifacts-320x900.png",
+      "sha256": "f6f0d3ad0a13129958bba49e4478c77b5b7473fc8afe897cdcc8847a3f675c25",
+      "width": 320,
+      "height": 900,
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/artifacts",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/case-detail-1280x720.png",
+      "sha256": "f0fa3546083ad892683ca0d40519bd75bc7346d73c6f8d8ad0207d903a0ec449",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/cases/inc-public-1",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/case-detail-1440x900.png",
+      "sha256": "3b82d2824a320e2094d8c1954e40a803a7ffe9bdd8590aa8f6501202c0cc1eda",
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/cases/inc-public-1",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/case-detail-320x900.png",
+      "sha256": "71bb68f8d3ce62189015f8c38024b3ed6e10338324b9f735f1d7b68b1bf76c0b",
+      "width": 320,
+      "height": 900,
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/cases/inc-public-1",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/cases-1280x720.png",
+      "sha256": "630e897e1bf99137387cef6910bd220e9f9f2243bbff478ff328eaaf16dd5896",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/cases",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/cases-1440x900.png",
+      "sha256": "f8d86b70bfbedf409835e579b5b719140eaf3e441371c0fabf0030d3ab3ef222",
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/cases",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/cases-320x900.png",
+      "sha256": "10e9d259ce72b227bf61eb7d8c3e55145f52512a862632003266ea2e52726023",
+      "width": 320,
+      "height": 900,
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/cases",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/landing-1280x720.png",
+      "sha256": "b31a47b9bad95dace915ecaa5c1950649af3980e02d9f0adcfed76acc2126295",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/landing-1440x900.png",
+      "sha256": "e6393cfefe18d608d1943633a9be9f94a1494f8ce7c92a632c418e1a8d2d68cf",
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/landing-320x900.png",
+      "sha256": "638f6e60f1d9b75130ed1b9290ef8e985bca096337e635e6265b298b6b8e2b3b",
+      "width": 320,
+      "height": 900,
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/not-found-1280x720.png",
+      "sha256": "12116ea213ce5744ab6e64be47643022a75e957a4149f1441ef7fa91d396244b",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/capture-missing",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/not-found-1440x900.png",
+      "sha256": "1606b39f1f987a505146e79d76d458dbabdbf0398f78cc1a46c960c4dcad74a1",
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/capture-missing",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/not-found-320x900.png",
+      "sha256": "6504394a7b82ea4e75099430a4879ebe095c3388ab33a7bc33cee47c3e95ee6c",
+      "width": 320,
+      "height": 900,
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/capture-missing",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/open-incident-1280x720.png",
+      "sha256": "6c9dbc247e6fedb4d5c084267a99b23bd217be4d3221ee0cb8ab5cee46524115",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/open-incident",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/open-incident-1440x900.png",
+      "sha256": "086104f91098d6a04e4aa780de5b397bdab5ad40361f78ee9830ed340c577639",
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/open-incident",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/open-incident-320x900.png",
+      "sha256": "4bc5dae9e4eef739ea198623fd9a957d15f7507e3756467d439be51fdf24224d",
+      "width": 320,
+      "height": 900,
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/open-incident",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/overview-1280x720.png",
+      "sha256": "1ad1be92f2954ab01c48ba945b13d3244ca050dff033f18669ad38b157faf688",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/overview",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/overview-1440x900.png",
+      "sha256": "d890c70327ce6249db0ae554f65708ed15c0c88b7ec9542d09f85556465ea4c5",
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/overview",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/overview-320x900.png",
+      "sha256": "2cabfd57ca8f2757bc6aa20ac4d1985a3b842bbf5db1bea71140856892b28ec5",
+      "width": 320,
+      "height": 900,
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/overview",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/overview-reference-comparison.png",
+      "sha256": "671cf3f4e7d9157ab55d1e3bbeb3ea30f10da14f778a4a1e9fa6e7a79d50bfcc",
+      "width": 2207,
+      "height": 712,
+      "viewport": {
+        "width": 2207,
+        "height": 712
+      },
+      "primary_landmark_count": 1,
+      "source_url": "playwright:setContent:overview-reference-comparison.png",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/signal-reference-comparison.png",
+      "sha256": "1c3924a4df6ef72fead37d0336846995e582bc92f020926a92f469e6e8673687",
+      "width": 2207,
+      "height": 712,
+      "viewport": {
+        "width": 2207,
+        "height": 712
+      },
+      "primary_landmark_count": 1,
+      "source_url": "playwright:setContent:signal-reference-comparison.png",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/signal-room-1280x720.png",
+      "sha256": "f0848817215d9db60dd7c3b23c42145150889d589a65eba26e87bf8c42636863",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/incidents/inc-e2e",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/signal-room-1440x900.png",
+      "sha256": "b80a9d2583f17088c2ee1a8897cf21da36509b2d1a1224c40cbe25edfcf0e97a",
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/incidents/inc-e2e",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/signal-room-320x900.png",
+      "sha256": "c776e6cfea85d2edd09ea7f13a755e5eef7025c281c055e120fe18ae4d5befd2",
+      "width": 320,
+      "height": 900,
+      "viewport": {
+        "width": 320,
+        "height": 900
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/incidents/inc-e2e",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    },
+    {
+      "path": "output/phase2-tracepaper-final/signal-room-detail-1280x720.png",
+      "sha256": "97f7bdf30f3b89b024640a1d1df2d0e9e6917f65e2decd29da7d555608c8735b",
+      "width": 1280,
+      "height": 720,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "primary_landmark_count": 1,
+      "source_url": "http://127.0.0.1:3100/incidents/inc-e2e#recorded-event-detail",
+      "capture_method": "playwright.page.screenshot",
+      "captured_at": "2026-07-16T08:19:38.424Z"
+    }
+  ]
+}

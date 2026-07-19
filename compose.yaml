@@ -1,0 +1,774 @@
+name: crosspatch
+
+x-python-service: &python-service
+  image: crosspatch-app:local
+  build:
+    context: .
+    dockerfile: Dockerfile
+    target: python-runtime
+  init: true
+  user: "10001:10001"
+  read_only: true
+  cap_drop:
+    - ALL
+  security_opt:
+    - no-new-privileges:true
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777
+  restart: unless-stopped
+
+x-runner-service: &runner-service
+  image: crosspatch-runner:local
+  build:
+    context: .
+    dockerfile: infra/runner/Dockerfile
+    target: runner
+  init: true
+  user: "10001:10001"
+  read_only: true
+  cap_drop:
+    - ALL
+  security_opt:
+    - no-new-privileges:true
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777
+  restart: unless-stopped
+
+x-control-environment: &control-environment
+  CROSSPATCH_ALLOWED_ORIGINS: ${CROSSPATCH_ALLOWED_ORIGINS:-https://localhost}
+  CROSSPATCH_RELEASE_MODE: ${CROSSPATCH_RELEASE_MODE:-0}
+
+services:
+  postgres:
+    image: postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: crosspatch
+      POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale=C
+      POSTGRES_USER: crosspatch
+      POSTGRES_PASSWORD: ${CROSSPATCH_POSTGRES_PASSWORD:-crosspatch-local-only}
+    expose:
+      - "5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+    networks:
+      - data
+
+  control-migrate:
+    <<: *python-service
+    command: ["migrate-control"]
+    restart: "no"
+    environment:
+      CROSSPATCH_RELEASE_MODE: ${CROSSPATCH_RELEASE_MODE:-0}
+      CROSSPATCH_DATABASE_URL: postgresql+asyncpg://crosspatch:${CROSSPATCH_POSTGRES_PASSWORD:-crosspatch-local-only}@postgres:5432/crosspatch
+      CROSSPATCH_API_POSTGRES_PASSWORD: ${CROSSPATCH_API_POSTGRES_PASSWORD:-crosspatch-local-api-db-change-me}
+      CROSSPATCH_BROKER_POSTGRES_PASSWORD: ${CROSSPATCH_BROKER_POSTGRES_PASSWORD:-crosspatch-local-broker-db-change-me}
+      CROSSPATCH_EVIDENCE_POSTGRES_PASSWORD: ${CROSSPATCH_EVIDENCE_POSTGRES_PASSWORD:-crosspatch-local-evidence-db-change-me}
+      CROSSPATCH_JUDGE_POSTGRES_PASSWORD: ${CROSSPATCH_JUDGE_POSTGRES_PASSWORD:-crosspatch-local-judge-db-change-me}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - data
+
+  verification-postgres:
+    image: postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec
+    profiles:
+      - verification
+    restart: "no"
+    environment:
+      POSTGRES_DB: crosspatch_verification
+      POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale=C
+      POSTGRES_USER: crosspatch_verifier
+      POSTGRES_PASSWORD: ${CROSSPATCH_VERIFICATION_POSTGRES_PASSWORD:-crosspatch-verification-local-only}
+    tmpfs:
+      - /var/lib/postgresql/data:rw,noexec,nosuid,nodev,size=256m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+      start_period: 2s
+    networks:
+      - verification
+
+  postgres-verifier:
+    <<: *runner-service
+    profiles:
+      - verification
+    restart: "no"
+    command:
+      - -c
+      - "import signal; signal.pause()"
+    environment:
+      CROSSPATCH_TEST_POSTGRES_DSN: postgresql+asyncpg://crosspatch_verifier:${CROSSPATCH_VERIFICATION_POSTGRES_PASSWORD:-crosspatch-verification-local-only}@verification-postgres:5432/crosspatch_verification
+    depends_on:
+      verification-postgres:
+        condition: service_healthy
+    networks:
+      - verification
+
+  victim-postgres:
+    image: postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec
+    restart: unless-stopped
+    environment:
+      CROSSPATCH_RELEASE_MODE: ${CROSSPATCH_RELEASE_MODE:-0}
+      CROSSPATCH_VICTIM_POSTGRES_ADMIN_PASSWORD: ${CROSSPATCH_VICTIM_POSTGRES_ADMIN_PASSWORD:-crosspatch-victim-admin-local-only}
+      CROSSPATCH_VICTIM_APP_PASSWORD: ${CROSSPATCH_VICTIM_APP_PASSWORD:-crosspatch-victim-app-local-only}
+      CROSSPATCH_VICTIM_CANDIDATE_PASSWORD: ${CROSSPATCH_VICTIM_CANDIDATE_PASSWORD:-crosspatch-victim-candidate-local-only}
+      CROSSPATCH_VICTIM_WORKER_PASSWORD: ${CROSSPATCH_VICTIM_WORKER_PASSWORD:-crosspatch-victim-worker-local-only}
+      CROSSPATCH_VICTIM_ORACLE_PASSWORD: ${CROSSPATCH_VICTIM_ORACLE_PASSWORD:-crosspatch-victim-oracle-local-only}
+      CROSSPATCH_VICTIM_SCOPE_PASSWORD: ${CROSSPATCH_VICTIM_SCOPE_PASSWORD:-crosspatch-victim-scope-local-only}
+      POSTGRES_DB: crosspatch_victim
+      POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale=C
+      POSTGRES_USER: crosspatch_victim_bootstrap
+      POSTGRES_PASSWORD: ${CROSSPATCH_VICTIM_POSTGRES_ADMIN_PASSWORD:-crosspatch-victim-admin-local-only}
+    entrypoint:
+      - /bin/sh
+      - /usr/local/bin/crosspatch-victim-postgres-entrypoint
+    command:
+      - postgres
+    expose:
+      - "5432"
+    volumes:
+      - victim-postgres-data:/var/lib/postgresql/data
+      - ./infra/postgres/victim-bootstrap.sql:/docker-entrypoint-initdb.d/10-victim-bootstrap.sql:ro
+      - ./infra/postgres/victim-entrypoint.sh:/usr/local/bin/crosspatch-victim-postgres-entrypoint:ro
+      - ./infra/postgres/victim-init.sql:/bootstrap/victim-init.sql:ro
+      - ./infra/postgres/victim-migrate.sql:/bootstrap/victim-migrate.sql:ro
+      - ./infra/postgres/victim-roles.sql:/bootstrap/victim-roles.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+    networks:
+      - victim-data
+      - candidate-data
+
+  victim-role-bootstrap:
+    image: postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec
+    restart: "no"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - |
+        export PGPASSWORD="$${CROSSPATCH_VICTIM_POSTGRES_ADMIN_PASSWORD}"
+        exec psql --no-password --set=ON_ERROR_STOP=1 --host=victim-postgres --username=crosspatch_victim_bootstrap --dbname=crosspatch_victim --file=/bootstrap/victim-migrate.sql
+    environment:
+      CROSSPATCH_VICTIM_POSTGRES_ADMIN_PASSWORD: ${CROSSPATCH_VICTIM_POSTGRES_ADMIN_PASSWORD:-crosspatch-victim-admin-local-only}
+      CROSSPATCH_VICTIM_APP_PASSWORD: ${CROSSPATCH_VICTIM_APP_PASSWORD:-crosspatch-victim-app-local-only}
+      CROSSPATCH_VICTIM_CANDIDATE_PASSWORD: ${CROSSPATCH_VICTIM_CANDIDATE_PASSWORD:-crosspatch-victim-candidate-local-only}
+      CROSSPATCH_VICTIM_WORKER_PASSWORD: ${CROSSPATCH_VICTIM_WORKER_PASSWORD:-crosspatch-victim-worker-local-only}
+      CROSSPATCH_VICTIM_ORACLE_PASSWORD: ${CROSSPATCH_VICTIM_ORACLE_PASSWORD:-crosspatch-victim-oracle-local-only}
+      CROSSPATCH_VICTIM_SCOPE_PASSWORD: ${CROSSPATCH_VICTIM_SCOPE_PASSWORD:-crosspatch-victim-scope-local-only}
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=16m,mode=1777
+    volumes:
+      - ./infra/postgres/victim-roles.sql:/bootstrap/victim-roles.sql:ro
+      - ./infra/postgres/victim-init.sql:/bootstrap/victim-init.sql:ro
+      - ./infra/postgres/victim-migrate.sql:/bootstrap/victim-migrate.sql:ro
+    depends_on:
+      victim-postgres:
+        condition: service_healthy
+    networks:
+      - victim-data
+
+  victim-postgres-verifier:
+    <<: *runner-service
+    profiles:
+      - verification
+    restart: "no"
+    command:
+      - -c
+      - "import signal; signal.pause()"
+    environment:
+      CROSSPATCH_TEST_DATABASE_URL: postgresql://crosspatch_verifier:${CROSSPATCH_VERIFICATION_POSTGRES_PASSWORD:-crosspatch-verification-local-only}@verification-postgres:5432/crosspatch_verification
+    depends_on:
+      verification-postgres:
+        condition: service_healthy
+    networks:
+      - verification
+
+  victim:
+    <<: *runner-service
+    command:
+      - -m
+      - uvicorn
+      - victim.app:create_app
+      - --factory
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8001"
+    environment:
+      CROSSPATCH_RELEASE_MODE: ${CROSSPATCH_RELEASE_MODE:-0}
+      VICTIM_DATABASE_URL: postgresql://crosspatch_victim_app:${CROSSPATCH_VICTIM_APP_PASSWORD:-crosspatch-victim-app-local-only}@victim-postgres:5432/crosspatch_victim
+      VICTIM_WEBHOOK_SECRET: ${CROSSPATCH_VICTIM_WEBHOOK_SECRET:-crosspatch-local-webhook-secret-change-me}
+    expose:
+      - "8001"
+    depends_on:
+      victim-role-bootstrap:
+        condition: service_completed_successfully
+      victim-postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - /opt/crosspatch/venv/bin/python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health', timeout=2).read()"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+    networks:
+      - victim-data
+      - victim
+
+  victim-worker:
+    <<: *python-service
+    command: ["victim-worker"]
+    environment:
+      CROSSPATCH_RELEASE_MODE: ${CROSSPATCH_RELEASE_MODE:-0}
+      VICTIM_DATABASE_URL: postgresql://crosspatch_victim_worker:${CROSSPATCH_VICTIM_WORKER_PASSWORD:-crosspatch-victim-worker-local-only}@victim-postgres:5432/crosspatch_victim
+    depends_on:
+      victim-role-bootstrap:
+        condition: service_completed_successfully
+      victim-postgres:
+        condition: service_healthy
+      victim:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "kill -0 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    networks:
+      - victim-data
+      - victim
+
+  runner:
+    <<: *runner-service
+    command:
+      - -m
+      - uvicorn
+      - crosspatch.runner.runner_service:create_app
+      - --factory
+      - --host
+      - 0.0.0.0
+      - --port
+      - "9020"
+    environment:
+      CROSSPATCH_RELEASE_MODE: ${CROSSPATCH_RELEASE_MODE:-0}
+      CROSSPATCH_CANDIDATE_EXECUTOR_TOKEN: ${CROSSPATCH_CANDIDATE_EXECUTOR_TOKEN:-crosspatch-local-sidecar-token-32chars}
+      CROSSPATCH_CANDIDATE_EXECUTOR_SOCKET: /run/crosspatch/control/executor.sock
+      CROSSPATCH_CANDIDATE_EXECUTOR_URL: http://candidate-executor
+      CROSSPATCH_CANDIDATE_TARGET_SOCKET: /run/crosspatch/app/candidate.sock
+      CROSSPATCH_CANDIDATE_TARGET_URL: http://candidate
+      CROSSPATCH_CANDIDATE_UID: "10002"
+      CROSSPATCH_CANDIDATE_HANDOFF_ROOT: /var/lib/crosspatch/candidate-handoff
+      CROSSPATCH_CANDIDATE_WORKSPACES_ROOT: /var/lib/crosspatch/candidate-workspaces
+      CROSSPATCH_RUNNER_JOBS_ROOT: /var/lib/crosspatch/jobs
+      CROSSPATCH_RUNNER_TOKEN: ${CROSSPATCH_RUNNER_TOKEN:-crosspatch-local-runner-service-token-32chars}
+      CROSSPATCH_RUNNER_UID: "10001"
+      CROSSPATCH_RUNNER_URL: http://127.0.0.1:9020
+      CROSSPATCH_RUNNER_WORKSPACES_ROOT: /var/lib/crosspatch/candidate-workspaces
+      CROSSPATCH_SUPERVISOR_UID: "10001"
+      CROSSPATCH_TEST_DATABASE_URL: postgresql://crosspatch_victim_oracle:${CROSSPATCH_VICTIM_ORACLE_PASSWORD:-crosspatch-victim-oracle-local-only}@victim-postgres:5432/crosspatch_victim
+      CROSSPATCH_WORKER_DATABASE_URL: postgresql://crosspatch_victim_worker:${CROSSPATCH_VICTIM_WORKER_PASSWORD:-crosspatch-victim-worker-local-only}@victim-postgres:5432/crosspatch_victim
+      CROSSPATCH_VICTIM_URL: http://victim:8001
+    expose:
+      - "9020"
+    depends_on:
+      victim-role-bootstrap:
+        condition: service_completed_successfully
+      victim-postgres:
+        condition: service_healthy
+      victim:
+        condition: service_healthy
+      candidate-executor:
+        condition: service_healthy
+    volumes:
+      - candidate-workspaces:/var/lib/crosspatch/candidate-workspaces:rw
+      - candidate-handoff:/var/lib/crosspatch/candidate-handoff:rw
+      - candidate-runtime:/run/crosspatch:rw
+      - runner-jobs:/var/lib/crosspatch/jobs:rw
+    group_add:
+      - "10004"
+    pids_limit: 256
+    healthcheck:
+      test:
+        - CMD
+        - /opt/crosspatch/venv/bin/python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9020/health', timeout=2).read()"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+    networks:
+      - victim-data
+      - runner
+      - victim
+
+  candidate-executor:
+    <<: *runner-service
+    user: "0:0"
+    entrypoint:
+      - /usr/local/bin/crosspatch-candidate-executor-entrypoint
+    security_opt: []
+    cap_add:
+      - KILL
+      - SETGID
+      - SETUID
+    command: []
+    environment:
+      CROSSPATCH_RELEASE_MODE: ${CROSSPATCH_RELEASE_MODE:-0}
+      CROSSPATCH_CANDIDATE_APP_SOCKET: /run/crosspatch/app/candidate.sock
+      CROSSPATCH_CANDIDATE_DATABASE_URL: postgresql://crosspatch_victim_candidate:${CROSSPATCH_VICTIM_CANDIDATE_PASSWORD:-crosspatch-victim-candidate-local-only}@victim-postgres:5432/crosspatch_victim
+      CROSSPATCH_CANDIDATE_SCOPE_DATABASE_URL: postgresql://crosspatch_victim_scope:${CROSSPATCH_VICTIM_SCOPE_PASSWORD:-crosspatch-victim-scope-local-only}@victim-postgres:5432/crosspatch_victim
+      CROSSPATCH_CANDIDATE_EXECUTOR_SOCKET: /run/crosspatch/control/executor.sock
+      CROSSPATCH_CANDIDATE_EXECUTOR_TOKEN: ${CROSSPATCH_CANDIDATE_EXECUTOR_TOKEN:-crosspatch-local-sidecar-token-32chars}
+      CROSSPATCH_CANDIDATE_GID: "10002"
+      CROSSPATCH_CANDIDATE_RUN_SECONDS: "12"
+      CROSSPATCH_CANDIDATE_UID: "10002"
+      CROSSPATCH_CANDIDATE_WORKSPACES_ROOT: /workspaces
+      CROSSPATCH_EXECUTOR_UID: "10003"
+      PYTHONPATH: /workspace/backend/src
+    pids_limit: 128
+    volumes:
+      - candidate-handoff:/workspaces:ro
+      - candidate-runtime:/run/crosspatch:rw
+    depends_on:
+      victim-role-bootstrap:
+        condition: service_completed_successfully
+      victim-postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - /opt/crosspatch/venv/bin/python
+        - -c
+        - "import os,socket; os.setgroups([10004]); os.setresgid(10003,10003,10003); os.setresuid(10003,10003,10003); s=socket.socket(socket.AF_UNIX); s.settimeout(2); s.connect('/run/crosspatch/control/executor.sock'); crlf=bytes((13, 10)); s.sendall(b'GET /health HTTP/1.1'+crlf+b'Host: candidate-executor'+crlf+b'Connection: close'+crlf+crlf); assert b'200 OK' in s.recv(512)"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+    networks:
+      - candidate-data
+
+  api:
+    <<: *python-service
+    command: ["api"]
+    environment:
+      <<: *control-environment
+      CROSSPATCH_DATABASE_URL: postgresql+asyncpg://crosspatch_api:${CROSSPATCH_API_POSTGRES_PASSWORD:-crosspatch-local-api-db-change-me}@postgres:5432/crosspatch
+      CROSSPATCH_OPERATOR_TOKEN: ${CROSSPATCH_OPERATOR_TOKEN:-crosspatch-local-operator-token-change-me}
+      CROSSPATCH_READER_TOKEN: ${CROSSPATCH_READER_TOKEN:-crosspatch-local-reader-token-change-me}
+      CROSSPATCH_APPROVER_TOKEN: ${CROSSPATCH_APPROVER_TOKEN:-crosspatch-local-approver-token-change-me}
+      CROSSPATCH_APPROVER_CSRF_TOKEN: ${CROSSPATCH_APPROVER_CSRF_TOKEN:-crosspatch-local-approver-csrf-token-change-me}
+      CROSSPATCH_APPROVER_STEP_UP_TOKEN: ${CROSSPATCH_APPROVER_STEP_UP_TOKEN:-crosspatch-local-approver-step-up-token-change-me}
+      CROSSPATCH_AGENT_SESSION_DATABASE: /var/lib/crosspatch/agent-sessions/agents.sqlite
+      CROSSPATCH_APPROVAL_MAC_KEY: ${CROSSPATCH_APPROVAL_MAC_KEY:-crosspatch-local-approval-mac-key-change-me}
+      CROSSPATCH_BROKER_MCP_SIGNING_SECRET: ${CROSSPATCH_BROKER_MCP_SIGNING_SECRET:-crosspatch-local-broker-mcp-signing-secret-change-me}
+      CROSSPATCH_EVIDENCE_MCP_SIGNING_SECRET: ${CROSSPATCH_EVIDENCE_MCP_SIGNING_SECRET:-crosspatch-local-evidence-mcp-signing-secret-change-me}
+      CROSSPATCH_ENVIRONMENT_DIGEST: ${CROSSPATCH_ENVIRONMENT_DIGEST:-0000000000000000000000000000000000000000000000000000000000000000}
+      CROSSPATCH_EXPORT_SIGNING_SEED: ${CROSSPATCH_EXPORT_SIGNING_SEED:-crosspatch-local-export-signing-seed-change-me}
+      CROSSPATCH_JUDGE_MCP_SIGNING_SECRET: ${CROSSPATCH_JUDGE_MCP_SIGNING_SECRET:-crosspatch-local-judge-mcp-signing-secret-change-me}
+      CROSSPATCH_JUDGE_TOKEN_EXPIRES_AT: ${CROSSPATCH_JUDGE_TOKEN_EXPIRES_AT:-2026-09-01T07:00:00Z}
+      CROSSPATCH_JUDGE_INCIDENT_SCOPED: ${CROSSPATCH_JUDGE_INCIDENT_SCOPED:-0}
+      CROSSPATCH_LIVE_TRIAL_GLOBAL_BUDGET_USD: ${CROSSPATCH_LIVE_TRIAL_GLOBAL_BUDGET_USD:-20}
+      CROSSPATCH_LIVE_TRIAL_RUN_RESERVATION_USD: ${CROSSPATCH_LIVE_TRIAL_RUN_RESERVATION_USD:-4}
+      CROSSPATCH_LIVE_TRIAL_REQUESTS_PER_WINDOW: ${CROSSPATCH_LIVE_TRIAL_REQUESTS_PER_WINDOW:-3}
+      CROSSPATCH_LIVE_TRIAL_WINDOW_SECONDS: ${CROSSPATCH_LIVE_TRIAL_WINDOW_SECONDS:-3600}
+      CROSSPATCH_RAW_ARTIFACT_ROOT: /var/lib/crosspatch/artifacts/raw
+      CROSSPATCH_REPOSITORY_ROOT: /app/repository
+      CROSSPATCH_RUNNER_DIGEST: ${CROSSPATCH_RUNNER_DIGEST:-0000000000000000000000000000000000000000000000000000000000000000}
+      CROSSPATCH_SANITIZED_ARTIFACT_ROOT: /var/lib/crosspatch/artifacts/sanitized
+      CROSSPATCH_VICTIM_DATABASE_URL: postgresql://crosspatch_victim_oracle:${CROSSPATCH_VICTIM_ORACLE_PASSWORD:-crosspatch-victim-oracle-local-only}@victim-postgres:5432/crosspatch_victim
+      CROSSPATCH_VICTIM_WORKER_DATABASE_URL: postgresql://crosspatch_victim_worker:${CROSSPATCH_VICTIM_WORKER_PASSWORD:-crosspatch-victim-worker-local-only}@victim-postgres:5432/crosspatch_victim
+      CROSSPATCH_VICTIM_URL: http://victim:8001
+      CROSSPATCH_VICTIM_WEBHOOK_SECRET: ${CROSSPATCH_VICTIM_WEBHOOK_SECRET:-crosspatch-local-webhook-secret-change-me}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    expose:
+      - "8000"
+    volumes:
+      - agent-sessions:/var/lib/crosspatch/agent-sessions:rw
+      - artifact-store:/var/lib/crosspatch/artifacts:rw
+      - judge-secrets:/app/.crosspatch/secrets:rw
+    depends_on:
+      control-migrate:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      victim:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - /opt/crosspatch/venv/bin/python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=2).read()"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 8s
+    networks:
+      - data
+      - edge
+      - evidence
+      - broker
+      - victim-data
+      - victim
+
+  evidence-mcp:
+    <<: *python-service
+    command: ["evidence-mcp"]
+    environment:
+      <<: *control-environment
+      CROSSPATCH_DATABASE_URL: postgresql+asyncpg://crosspatch_evidence:${CROSSPATCH_EVIDENCE_POSTGRES_PASSWORD:-crosspatch-local-evidence-db-change-me}@postgres:5432/crosspatch
+      CROSSPATCH_EVIDENCE_ALLOWED_HOSTS: evidence-mcp,evidence-mcp:8011
+      CROSSPATCH_EVIDENCE_MCP_SIGNING_SECRET: ${CROSSPATCH_EVIDENCE_MCP_SIGNING_SECRET:-crosspatch-local-evidence-mcp-signing-secret-change-me}
+    expose:
+      - "8011"
+    depends_on:
+      control-migrate:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - /opt/crosspatch/venv/bin/python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8011/healthz', timeout=2).read()"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 8s
+    networks:
+      - data
+      - evidence
+
+  broker-mcp:
+    <<: *python-service
+    command: ["broker-mcp"]
+    environment:
+      <<: *control-environment
+      CROSSPATCH_DATABASE_URL: postgresql+asyncpg://crosspatch_broker:${CROSSPATCH_BROKER_POSTGRES_PASSWORD:-crosspatch-local-broker-db-change-me}@postgres:5432/crosspatch
+      CROSSPATCH_RELEASE_MODE: ${CROSSPATCH_RELEASE_MODE:-0}
+      CROSSPATCH_APPROVAL_MAC_KEY: ${CROSSPATCH_APPROVAL_MAC_KEY:-crosspatch-local-approval-mac-key-change-me}
+      CROSSPATCH_BROKER_ALLOWED_HOSTS: broker-mcp,broker-mcp:8012
+      CROSSPATCH_BROKER_MCP_SIGNING_SECRET: ${CROSSPATCH_BROKER_MCP_SIGNING_SECRET:-crosspatch-local-broker-mcp-signing-secret-change-me}
+      CROSSPATCH_ENVIRONMENT_DIGEST: ${CROSSPATCH_ENVIRONMENT_DIGEST:-0000000000000000000000000000000000000000000000000000000000000000}
+      CROSSPATCH_REPOSITORY_ROOT: /app/repository
+      CROSSPATCH_RUNNER_DIGEST: ${CROSSPATCH_RUNNER_DIGEST:-0000000000000000000000000000000000000000000000000000000000000000}
+      CROSSPATCH_RUNNER_JOBS_ROOT: /var/lib/crosspatch/jobs
+      CROSSPATCH_RUNNER_TOKEN: ${CROSSPATCH_RUNNER_TOKEN:-crosspatch-local-runner-service-token-32chars}
+      CROSSPATCH_RUNNER_UID: "10001"
+      CROSSPATCH_RUNNER_URL: http://runner:9020
+      CROSSPATCH_RUNNER_WORKSPACES_ROOT: /var/lib/crosspatch/candidate-workspaces
+    expose:
+      - "8012"
+    volumes:
+      - candidate-workspaces:/var/lib/crosspatch/candidate-workspaces:rw
+      - runner-jobs:/var/lib/crosspatch/jobs:rw
+    depends_on:
+      control-migrate:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      runner:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - /opt/crosspatch/venv/bin/python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8012/healthz', timeout=2).read()"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 8s
+    networks:
+      - data
+      - broker
+      - runner
+
+  judge-mcp:
+    <<: *python-service
+    command: ["judge-mcp"]
+    environment:
+      <<: *control-environment
+      CROSSPATCH_DATABASE_URL: postgresql+asyncpg://crosspatch_judge:${CROSSPATCH_JUDGE_POSTGRES_PASSWORD:-crosspatch-local-judge-db-change-me}@postgres:5432/crosspatch
+      CROSSPATCH_JUDGE_ALLOWED_HOSTS: judge-mcp,judge-mcp:8013,localhost,${CROSSPATCH_SITE_ADDRESS:-localhost}
+      CROSSPATCH_JUDGE_MCP_SIGNING_SECRET: ${CROSSPATCH_JUDGE_MCP_SIGNING_SECRET:-crosspatch-local-judge-mcp-signing-secret-change-me}
+      CROSSPATCH_JUDGE_TOKEN_EXPIRES_AT: ${CROSSPATCH_JUDGE_TOKEN_EXPIRES_AT:-2026-09-01T07:00:00Z}
+      CROSSPATCH_JUDGE_INCIDENT_SCOPED: ${CROSSPATCH_JUDGE_INCIDENT_SCOPED:-0}
+    expose:
+      - "8013"
+    depends_on:
+      control-migrate:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - /opt/crosspatch/venv/bin/python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8013/healthz', timeout=2).read()"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 8s
+    networks:
+      - data
+      - judge
+
+  web:
+    image: crosspatch-web:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: web-runtime
+      args:
+        CROSSPATCH_PUBLIC_URL: ${CROSSPATCH_PUBLIC_URL:-https://localhost}
+    init: true
+    user: "10001:10001"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=32m,mode=1777
+    restart: unless-stopped
+    environment:
+      HOSTNAME: 0.0.0.0
+      PORT: "3000"
+      NODE_ENV: production
+      CROSSPATCH_PUBLIC_URL: ${CROSSPATCH_PUBLIC_URL:-https://localhost}
+    expose:
+      - "3000"
+    healthcheck:
+      test:
+        - CMD
+        - /usr/local/bin/node
+        - -e
+        - "fetch('http://127.0.0.1:3000/').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 8s
+    networks:
+      - edge
+
+  caddy:
+    image: caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
+    init: true
+    restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    # The pinned official binary carries cap_net_bind_service. Docker rejects
+    # that executable under no-new-privileges unless the capability remains in
+    # the bounding set, even though Caddy listens on unprivileged 8080/8443.
+    cap_add:
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      CROSSPATCH_SITE_ADDRESS: ${CROSSPATCH_SITE_ADDRESS:-localhost}
+    ports:
+      - "${CROSSPATCH_BIND_ADDRESS:-127.0.0.1}:${CROSSPATCH_HTTP_PORT:-80}:8080"
+      - "${CROSSPATCH_BIND_ADDRESS:-127.0.0.1}:${CROSSPATCH_HTTPS_PORT:-443}:8443"
+    volumes:
+      - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data:rw
+      - caddy-config:/config:rw
+    depends_on:
+      api:
+        condition: service_healthy
+      judge-mcp:
+        condition: service_healthy
+      web:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "caddy", "validate", "--config", "/etc/caddy/Caddyfile"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    networks:
+      - edge
+      - judge
+
+  replay-api:
+    image: crosspatch-replay-api:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: replay-python-runtime
+    profiles:
+      - replay
+    init: true
+    user: "10001:10001"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=16m,mode=1777
+    restart: unless-stopped
+    environment:
+      CROSSPATCH_REPLAY_DATABASE_URL: sqlite+aiosqlite:///file:/app/replay/replay.db?mode=ro&uri=true
+    expose:
+      - "8000"
+    healthcheck:
+      test:
+        - CMD
+        - /opt/crosspatch/venv/bin/python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=2).read()"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+    networks:
+      - replay
+
+  replay-web:
+    image: crosspatch-replay-web:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: web-runtime
+      args:
+        - CROSSPATCH_PUBLIC_URL=http://localhost:8088
+        - NEXT_PUBLIC_CROSSPATCH_REPLAY_MODE=1
+    profiles:
+      - replay
+    init: true
+    user: "10001:10001"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=32m,mode=1777
+    restart: unless-stopped
+    environment:
+      HOSTNAME: 0.0.0.0
+      PORT: "3000"
+      NODE_ENV: production
+      CROSSPATCH_PUBLIC_URL: http://localhost:8088
+    expose:
+      - "3000"
+    healthcheck:
+      test:
+        - CMD
+        - /usr/local/bin/node
+        - -e
+        - "fetch('http://127.0.0.1:3000/cases').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 8s
+    networks:
+      - replay
+
+  replay-caddy:
+    image: crosspatch-replay-caddy:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: replay-caddy-runtime
+    profiles:
+      - replay
+    init: true
+    user: "10001:10001"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    ports:
+      - target: 8080
+        published: "${CROSSPATCH_REPLAY_PORT:-8088}"
+        host_ip: 127.0.0.1
+        protocol: tcp
+    volumes:
+      - ./infra/Caddyfile.replay:/etc/caddy/Caddyfile:ro
+    tmpfs:
+      - /config:rw,noexec,nosuid,nodev,size=8m,mode=0700
+      - /data:rw,noexec,nosuid,nodev,size=8m,mode=0700
+      - /tmp:rw,noexec,nosuid,nodev,size=8m,mode=1777
+    depends_on:
+      replay-api:
+        condition: service_healthy
+      replay-web:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "caddy", "validate", "--config", "/etc/caddy/Caddyfile"]
+      interval: 5s
+      timeout: 3s
+      retries: 6
+    networks:
+      - replay
+      - replay-edge
+
+networks:
+  broker:
+    internal: true
+  candidate-data:
+    internal: true
+  data:
+    internal: true
+  edge:
+    # Caddy needs ACME/DNS egress and the API needs the OpenAI Responses API.
+    # No service on this network publishes a port except Caddy.
+  evidence:
+    internal: true
+  judge:
+    internal: true
+  runner:
+    internal: true
+  victim:
+    internal: true
+  victim-data:
+    internal: true
+  verification:
+    internal: true
+  replay:
+    internal: true
+  replay-edge:
+    # The replay proxy is the only bridge from the private replay graph to a
+    # loopback-only host port.
+
+volumes:
+  agent-sessions:
+  artifact-store:
+  caddy-config:
+  caddy-data:
+  candidate-runtime:
+  candidate-handoff:
+  candidate-workspaces:
+  judge-secrets:
+  postgres-data:
+  runner-jobs:
+  victim-postgres-data:

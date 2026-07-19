@@ -1,0 +1,191 @@
+{
+  "build_context_evidence_sha256": "38f5fe1a94de88a9c7050e26e793fa6242ba6214b6eaefbe77ff66cd686838c3",
+  "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+  "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+  "checked_at": "2026-07-19T20:52:32Z",
+  "compose_file_sha256": "b7b06b86f5076dcab3b0fada12ed4a0f41f943ee35defd9a914774b3aec4d4d2",
+  "deployment_manifest_sha256": "cd7b31ca63e5ab6501255a658fc7ab7c998a94c4b931971f169f73cbe4cd35a3",
+  "generator": "scripts/capture_image_provenance.py",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "immutable_build_evidence_sha256": "975e6836d53cf92a966d820900b69a3b8f41b759c090746b2b0344222cdfd741",
+  "machine_generated": true,
+  "schema_version": 1,
+  "services": [
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-app:local",
+      "container_id": "f67ad6892f3d7f422e1eed8a0c607c1b7404bfea26e213bce4221cd8819fcb29",
+      "exit_code": 0,
+      "image_id": "sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115",
+      "repo_digests": [
+        "crosspatch-app@sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115"
+      ],
+      "service": "api",
+      "state": "running"
+    },
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-app:local",
+      "container_id": "af76c115f0975a0281bfc13f341480159193875c4497541b3d77331c98c80b63",
+      "exit_code": 0,
+      "image_id": "sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115",
+      "repo_digests": [
+        "crosspatch-app@sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115"
+      ],
+      "service": "broker-mcp",
+      "state": "running"
+    },
+    {
+      "configured_image": "caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d",
+      "container_id": "26adc63e3778586296632a1e6d4ab125febea61190f32ad92c661da6b74a767f",
+      "exit_code": 0,
+      "image_id": "sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d",
+      "repo_digests": [
+        "caddy@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d"
+      ],
+      "service": "caddy",
+      "state": "running"
+    },
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-runner:local",
+      "container_id": "fb1f08d5a090abfde398738fe52cf5c59d469375482dfb02c5324b5a14b2f005",
+      "exit_code": 0,
+      "image_id": "sha256:caf7ac5c8777a3568f16f9454afcedfbc7989c9a323b674834abd846b454f490",
+      "repo_digests": [
+        "crosspatch-runner@sha256:caf7ac5c8777a3568f16f9454afcedfbc7989c9a323b674834abd846b454f490"
+      ],
+      "service": "candidate-executor",
+      "state": "running"
+    },
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-app:local",
+      "container_id": "03bf8763cb90eb00161b614aac1734d8fef815af16fa37896632cb20ac0b23d4",
+      "exit_code": 0,
+      "image_id": "sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115",
+      "repo_digests": [
+        "crosspatch-app@sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115"
+      ],
+      "service": "control-migrate",
+      "state": "exited"
+    },
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-app:local",
+      "container_id": "384fb122e12401d0734e2a21c47bde9eb710f97920c9d0cf7726b951bfa90cee",
+      "exit_code": 0,
+      "image_id": "sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115",
+      "repo_digests": [
+        "crosspatch-app@sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115"
+      ],
+      "service": "evidence-mcp",
+      "state": "running"
+    },
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-app:local",
+      "container_id": "3e200b7ee9ee3eaf4ae86c325cdc1564170831ced4f518300df345aa7ef605c0",
+      "exit_code": 0,
+      "image_id": "sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115",
+      "repo_digests": [
+        "crosspatch-app@sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115"
+      ],
+      "service": "judge-mcp",
+      "state": "running"
+    },
+    {
+      "configured_image": "postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
+      "container_id": "1a21c0e546c7af1bb8979311fbb598f735ae76d01acfbde3f4a7d54dc9c7fe5f",
+      "exit_code": 0,
+      "image_id": "sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
+      "repo_digests": [
+        "postgres@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec"
+      ],
+      "service": "postgres",
+      "state": "running"
+    },
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-runner:local",
+      "container_id": "894242633db0875d20194a7c67623a2b2006b250eef22d0c32fb44a64e57e5a3",
+      "exit_code": 0,
+      "image_id": "sha256:caf7ac5c8777a3568f16f9454afcedfbc7989c9a323b674834abd846b454f490",
+      "repo_digests": [
+        "crosspatch-runner@sha256:caf7ac5c8777a3568f16f9454afcedfbc7989c9a323b674834abd846b454f490"
+      ],
+      "service": "runner",
+      "state": "running"
+    },
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-runner:local",
+      "container_id": "7dadbf4767b2ea81dc09e3d3641521e0ab7ee04f593d9a2be1917960427d80d1",
+      "exit_code": 0,
+      "image_id": "sha256:caf7ac5c8777a3568f16f9454afcedfbc7989c9a323b674834abd846b454f490",
+      "repo_digests": [
+        "crosspatch-runner@sha256:caf7ac5c8777a3568f16f9454afcedfbc7989c9a323b674834abd846b454f490"
+      ],
+      "service": "victim",
+      "state": "running"
+    },
+    {
+      "configured_image": "postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
+      "container_id": "52be26c8f16b5a3738515280b91c1870f3c6a98ffe9adbfa288b2245d0c6d0bd",
+      "exit_code": 0,
+      "image_id": "sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
+      "repo_digests": [
+        "postgres@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec"
+      ],
+      "service": "victim-postgres",
+      "state": "running"
+    },
+    {
+      "configured_image": "postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
+      "container_id": "74d8c96b081371eaadeb8dca39c03d9923de9109449320d68a3d7afd7a5b33ac",
+      "exit_code": 0,
+      "image_id": "sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
+      "repo_digests": [
+        "postgres@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec"
+      ],
+      "service": "victim-role-bootstrap",
+      "state": "exited"
+    },
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-app:local",
+      "container_id": "497946a149b902a3fb2bf95f1aabfbefb1358f43dbb560ceddbf9a8515988f3c",
+      "exit_code": 0,
+      "image_id": "sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115",
+      "repo_digests": [
+        "crosspatch-app@sha256:d1f91aa4cb42d8bd2dd8ee091b9f0e7d8d34da69b8f5ba92ca3d5781f4065115"
+      ],
+      "service": "victim-worker",
+      "state": "running"
+    },
+    {
+      "build_context_manifest_sha256": "a0323468e282852c11de5e24e541d6d823a8c784283b2a33e3f5f7909143c88f",
+      "build_context_tar_sha256": "1166dee43c8e32ab5a3af50f3887bdd55b6a67d75f3770d34335b45669e1a21a",
+      "configured_image": "crosspatch-web:local",
+      "container_id": "bc0a433531c0f95bab9bf700c468529aebb30e878aeadf7c3efc64781100e958",
+      "exit_code": 0,
+      "image_id": "sha256:334bcd4e46a6b15f935d626e40590554a3eccca5a9f9d0f6625ef059b441f76b",
+      "repo_digests": [
+        "crosspatch-web@sha256:334bcd4e46a6b15f935d626e40590554a3eccca5a9f9d0f6625ef059b441f76b"
+      ],
+      "service": "web",
+      "state": "running"
+    }
+  ],
+  "source": "docker inspect readback of the deployed Compose containers and images",
+  "status": "PASS"
+}

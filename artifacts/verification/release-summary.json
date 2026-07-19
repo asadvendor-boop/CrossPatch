@@ -1,0 +1,42 @@
+{
+  "checked_at": "2026-07-19T20:54:35Z",
+  "claim_count": 21,
+  "claim_map_validation": {
+    "command": "uv run --frozen --extra dev python -m pytest backend/tests/contract/test_claim_map.py -q",
+    "duration_ms": 563,
+    "exit_code": 0,
+    "output_bytes": 114,
+    "output_sha256": "81ebbc0365f8746ae68214a905b39170121c9d3e553acae7b9ad214d8c0e872e",
+    "output_truncated": false,
+    "started_at": "2026-07-19T20:54:34Z",
+    "status": "PASS",
+    "stderr": "",
+    "stdout": "...........................                                              [100%]\n27 passed in 0.42s\n",
+    "timed_out": false
+  },
+  "command": "./scripts/verify-release.sh --strict",
+  "external_readiness_is_independent": true,
+  "generator": "scripts/verify-release.sh",
+  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "local_checks": {
+    "backend": "PASS",
+    "claim_map": "PASS",
+    "claim_provenance": "PASS",
+    "codex_collaboration": "PASS",
+    "compose": "PASS",
+    "frontend": "PASS",
+    "package": "PASS",
+    "public_repository": "PASS",
+    "race": "PASS",
+    "source_integrity": "PASS",
+    "strict_cleanup": "PASS",
+    "supply_chain_preflight": "PASS",
+    "supply_chain_provenance": "PASS",
+    "warrant": "PASS"
+  },
+  "machine_generated": true,
+  "schema_version": 1,
+  "source": "scripts/release_verifier.py executed local release commands",
+  "status": "PASS",
+  "strict": true
+}
