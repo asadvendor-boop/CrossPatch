@@ -10,7 +10,7 @@
     "live restart-policy readback evidence is missing or unverified",
     "uptime monitor evidence through 2026-08-13T07:00:00Z is missing"
   ],
-  "checked_at": "2026-07-19T20:50:07Z",
+  "checked_at": "2026-07-19T20:59:16Z",
   "checks": {
     "authenticated_judge_mcp": {
       "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
@@ -32,9 +32,9 @@
       "detail": "authenticated GitHub API evidence is not in a verified state",
       "evidence": {
         "artifact_path": "artifacts/verification/github-license.json",
-        "artifact_sha256": "a8fa359ee3086cfef466a3a2702821abe602f4f7dee7489cc8b4b04172785a72",
+        "artifact_sha256": "d46e83e3fe407aac79a0d7e54620af974c21e154d434b2deef609fc10be34cec",
         "generator": "scripts/verify-github-license.sh",
-        "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+        "git_sha": "25a02905f32fbfdfe62ed9c99086ae21f20f8baa",
         "reported_status": "BLOCKED",
         "repository": "asadvendor-boop/CrossPatch",
         "validation_errors": [
@@ -84,14 +84,14 @@
   },
   "command": "./scripts/verify-hosted.sh --output artifacts/verification/hosted-acceptance.json",
   "deployment_claimed": false,
-  "deployment_git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "deployment_git_sha": "25a02905f32fbfdfe62ed9c99086ae21f20f8baa",
   "generator": "scripts/verify-hosted.sh",
-  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "git_sha": "25a02905f32fbfdfe62ed9c99086ae21f20f8baa",
   "machine_generated": true,
   "public_url": null,
   "required_through": "2026-08-13T07:00:00Z",
   "schema_version": 1,
   "source": "external DNS, TLS, HTTP, authenticated MCP, and monitor probes",
-  "source_sha256": "8f04b5027d53da5c8827e24cbe186c514ca55db3b81d2d53e7801d2c108b2849",
+  "source_sha256": "89c147160baa86c1994ff750b754009c7f54b5f0031d241edae060f1308a9ca6",
   "status": "BLOCKED"
 }

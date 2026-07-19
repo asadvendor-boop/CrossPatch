@@ -3,7 +3,7 @@
     "artifacts/verification",
     "docs/CLAIM_MAP.json"
   ],
-  "checked_at": "2026-07-19T20:51:55Z",
+  "checked_at": "2026-07-19T21:00:58Z",
   "checks": [
     {
       "command": "git source identity vs HEAD excluding generator-owned evidence",
@@ -12,7 +12,7 @@
       "output_bytes": 0,
       "output_sha256": "97e7bc0fdaaf8f6019c4b12f9a6943855c34d292b60568233bfc2f6fb4121646",
       "output_truncated": false,
-      "started_at": "2026-07-19T20:51:55Z",
+      "started_at": "2026-07-19T21:00:58Z",
       "status": "PASS",
       "stderr": "",
       "stdout": "",
@@ -20,12 +20,12 @@
     }
   ],
   "generator": "scripts/verify-release.sh",
-  "git_sha": "4f700b5e0df7fa8c16255a693cf6c63ea08fd1b4",
+  "git_sha": "25a02905f32fbfdfe62ed9c99086ae21f20f8baa",
   "machine_generated": true,
   "observed_generated_path_count": 9,
   "observed_generated_paths_sha256": "97e7bc0fdaaf8f6019c4b12f9a6943855c34d292b60568233bfc2f6fb4121646",
   "schema_version": 1,
   "source": "tracked and untracked build source matched Git HEAD; only verifier-owned generated evidence differed",
-  "source_sha256": "8f04b5027d53da5c8827e24cbe186c514ca55db3b81d2d53e7801d2c108b2849",
+  "source_sha256": "89c147160baa86c1994ff750b754009c7f54b5f0031d241edae060f1308a9ca6",
   "status": "PASS"
 }

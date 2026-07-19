@@ -2,14 +2,14 @@
   "claims": [
     {
       "artifact_path": "artifacts/verification/codex-collaboration.json",
-      "artifact_sha256": "e8c3c1aaa2a7b88ef65e94a2a59b616f10f46d63e1487fbb6f4ae277b9154489",
+      "artifact_sha256": "cc095399e93ac88a383b4d0740f7884f192a6bde0395411b88ebc729aba9f37a",
       "artifact_status": "PASS",
       "claim_id": "collaboration.codex-provenance",
       "description": "Real Codex task lineage, repository-slice ownership, and regression receipts",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev python scripts/verify_codex_collaboration.py --check",
-        "generated_at": "2026-07-19T20:50:07Z",
+        "generated_at": "2026-07-19T20:59:16Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "privacy-minimized Codex task lineage and current test-receipt validation"
@@ -17,14 +17,14 @@
     },
     {
       "artifact_path": "artifacts/verification/backend-tests.json",
-      "artifact_sha256": "f6713c2dc6516e508aa8b49e1f7ea33830a8ad8dbdd1f06d0325a7fad2dff30f",
+      "artifact_sha256": "92086c302795fa9393db716d8b2dce8a834591708d03307da656bf4b6f635dac",
       "artifact_status": "PASS",
       "claim_id": "release.backend",
       "description": "Backend, security, contract, and integration suite",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev ruff check backend victim scripts",
-        "generated_at": "2026-07-19T20:51:31Z",
+        "generated_at": "2026-07-19T21:00:34Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "fresh locked backend, security, contract, victim, and integration verification"
@@ -32,14 +32,14 @@
     },
     {
       "artifact_path": "artifacts/verification/backend-tests.json",
-      "artifact_sha256": "f6713c2dc6516e508aa8b49e1f7ea33830a8ad8dbdd1f06d0325a7fad2dff30f",
+      "artifact_sha256": "92086c302795fa9393db716d8b2dce8a834591708d03307da656bf4b6f635dac",
       "artifact_status": "PASS",
       "claim_id": "product.specialist-contract",
       "description": "Exact five-seat order, models, output schemas, and tool boundaries",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev ruff check backend victim scripts",
-        "generated_at": "2026-07-19T20:51:31Z",
+        "generated_at": "2026-07-19T21:00:34Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "fresh locked backend, security, contract, victim, and integration verification"
@@ -47,14 +47,14 @@
     },
     {
       "artifact_path": "artifacts/verification/backend-tests.json",
-      "artifact_sha256": "f6713c2dc6516e508aa8b49e1f7ea33830a8ad8dbdd1f06d0325a7fad2dff30f",
+      "artifact_sha256": "92086c302795fa9393db716d8b2dce8a834591708d03307da656bf4b6f635dac",
       "artifact_status": "PASS",
       "claim_id": "product.fail-closed-abstain",
       "description": "Complete Magistrate failure matrix maps to ABSTAIN without execution authority",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev ruff check backend victim scripts",
-        "generated_at": "2026-07-19T20:51:31Z",
+        "generated_at": "2026-07-19T21:00:34Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "fresh locked backend, security, contract, victim, and integration verification"
@@ -62,14 +62,14 @@
     },
     {
       "artifact_path": "artifacts/verification/backend-tests.json",
-      "artifact_sha256": "f6713c2dc6516e508aa8b49e1f7ea33830a8ad8dbdd1f06d0325a7fad2dff30f",
+      "artifact_sha256": "92086c302795fa9393db716d8b2dce8a834591708d03307da656bf4b6f635dac",
       "artifact_status": "PASS",
       "claim_id": "product.effort-escalation",
       "description": "Bounded reasoning escalation and semantic duplicate rejection",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev ruff check backend victim scripts",
-        "generated_at": "2026-07-19T20:51:31Z",
+        "generated_at": "2026-07-19T21:00:34Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "fresh locked backend, security, contract, victim, and integration verification"
@@ -77,14 +77,14 @@
     },
     {
       "artifact_path": "artifacts/verification/adversarial-evaluation.json",
-      "artifact_sha256": "feeb73b56812f993895e7009b81997f596447e6b817e35cdf1d59a80551eba80",
+      "artifact_sha256": "4fb390ea99923646c9f967e2be9ec1c404e009a97c6e9b84c90e4d34bc69b179",
       "artifact_status": "PASS",
       "claim_id": "security.evidence-boundary",
       "description": "Genuine hostile-evidence boundary, sanitizer vectors, authority-tamper controls, duplicate refusal, and REMAND records",
       "generator": "scripts/reproducible_adversarial_eval.py",
       "provenance": {
         "command": "signed genuine C2 export, declared sanitizer vectors, broker controls, duplicate-refusal record, published exports, and sealed cohort",
-        "generated_at": "2026-07-19T20:51:31Z",
+        "generated_at": "2026-07-19T21:00:34Z",
         "generator": "scripts/reproducible_adversarial_eval.py",
         "kind": "machine-generated",
         "source": "signed genuine C2 export, declared sanitizer vectors, broker controls, duplicate-refusal record, published exports, and sealed cohort"
@@ -92,14 +92,14 @@
     },
     {
       "artifact_path": "artifacts/verification/backend-tests.json",
-      "artifact_sha256": "f6713c2dc6516e508aa8b49e1f7ea33830a8ad8dbdd1f06d0325a7fad2dff30f",
+      "artifact_sha256": "92086c302795fa9393db716d8b2dce8a834591708d03307da656bf4b6f635dac",
       "artifact_status": "PASS",
       "claim_id": "runtime.agents-sdk",
       "description": "Responses API Agents SDK orchestration, sessions, tracing, handoffs, and guardrails",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev ruff check backend victim scripts",
-        "generated_at": "2026-07-19T20:51:31Z",
+        "generated_at": "2026-07-19T21:00:34Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "fresh locked backend, security, contract, victim, and integration verification"
@@ -107,14 +107,14 @@
     },
     {
       "artifact_path": "artifacts/verification/backend-tests.json",
-      "artifact_sha256": "f6713c2dc6516e508aa8b49e1f7ea33830a8ad8dbdd1f06d0325a7fad2dff30f",
+      "artifact_sha256": "92086c302795fa9393db716d8b2dce8a834591708d03307da656bf4b6f635dac",
       "artifact_status": "PASS",
       "claim_id": "runtime.cli-control-plane",
       "description": "CLI uses the authenticated API and SSE control plane",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev ruff check backend victim scripts",
-        "generated_at": "2026-07-19T20:51:31Z",
+        "generated_at": "2026-07-19T21:00:34Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "fresh locked backend, security, contract, victim, and integration verification"
@@ -122,14 +122,14 @@
     },
     {
       "artifact_path": "artifacts/verification/claim-provenance.json",
-      "artifact_sha256": "b3d8058b5b304d424a17e779c79d4a1692b37088d6d32c33c296f005dcf21fe8",
+      "artifact_sha256": "cda5a6936e922560c84d45d39edbd7c92e24f9954ebbd4757e8c7af58966ab01",
       "artifact_status": "PASS",
       "claim_id": "release.claim-provenance",
       "description": "Claim IDs, artifact hashes, checked-in generators, and provenance contracts",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "validate registered claim input adversarial-evaluation.json",
-        "generated_at": "2026-07-19T20:54:34Z",
+        "generated_at": "2026-07-19T21:03:36Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "registered claim inputs, allowed statuses, artifact hashes, and checked-in executable generators"
@@ -137,14 +137,14 @@
     },
     {
       "artifact_path": "artifacts/verification/frontend-tests.json",
-      "artifact_sha256": "503be874b4c6feed3b04521f3fce44bbdac2189c89547a4045ac022d9841e258",
+      "artifact_sha256": "af4df8d0126909e989dc17fd36c4c46a0e7c6028853fa5f9a4dc3a8d66a5683c",
       "artifact_status": "PASS",
       "claim_id": "release.frontend",
       "description": "UI tests, lint, typecheck, build, and browser flow",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "npm ci --ignore-scripts --no-audit --no-fund",
-        "generated_at": "2026-07-19T20:51:55Z",
+        "generated_at": "2026-07-19T21:00:58Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "fresh locked Next.js unit, static, production, and browser verification"
@@ -152,14 +152,14 @@
     },
     {
       "artifact_path": "artifacts/verification/frontend-tests.json",
-      "artifact_sha256": "503be874b4c6feed3b04521f3fce44bbdac2189c89547a4045ac022d9841e258",
+      "artifact_sha256": "af4df8d0126909e989dc17fd36c4c46a0e7c6028853fa5f9a4dc3a8d66a5683c",
       "artifact_status": "PASS",
       "claim_id": "ui.incident-room",
       "description": "Tracepaper Signal Room, exact specialist rail, recorded-moment feed, evidence, and approval UI",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "npm ci --ignore-scripts --no-audit --no-fund",
-        "generated_at": "2026-07-19T20:51:55Z",
+        "generated_at": "2026-07-19T21:00:58Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "fresh locked Next.js unit, static, production, and browser verification"
@@ -167,14 +167,14 @@
     },
     {
       "artifact_path": "artifacts/verification/compose-policy.json",
-      "artifact_sha256": "5a4884f317297ab7019a66aa2a8ac5251732bc98913ad030e49b0fcb8b0bfa4b",
+      "artifact_sha256": "808c128547542ec35797b52fa0d218379591e29986d307cd0a67cecae4351fa3",
       "artifact_status": "PASS",
       "claim_id": "release.compose",
       "description": "Rendered service topology and container policy",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev python -m pytest backend/tests/contract/test_compose.py backend/tests/contract/test_docs.py backend/tests/contract/test_hosted_acceptance.py backend/tests/security/test_container_policy.py backend/tests/contract/test_task4_container.py -q",
-        "generated_at": "2026-07-19T20:52:29Z",
+        "generated_at": "2026-07-19T21:01:31Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "rendered and optionally live one-command Docker Compose topology"
@@ -182,14 +182,14 @@
     },
     {
       "artifact_path": "artifacts/verification/package-build.json",
-      "artifact_sha256": "ee3b305949adc8e05c4063fe70ac0b96c99d20f916f4ce60517c6fdbdfdee567",
+      "artifact_sha256": "dd0b484fa3de87d654006f99b54d2440a6f1d92a4ffe4ab67d703105ce75c933",
       "artifact_status": "PASS",
       "claim_id": "release.package",
       "description": "Frozen lock and package build checks",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv lock --check",
-        "generated_at": "2026-07-19T20:52:31Z",
+        "generated_at": "2026-07-19T21:01:33Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "frozen dependency graphs and distributable source/wheel build"
@@ -197,14 +197,14 @@
     },
     {
       "artifact_path": "artifacts/verification/race-reproduction.json",
-      "artifact_sha256": "813fc9eedd1e219029b6ce08650d13aa581b3a43642e5baecb95b2b1476e5df4",
+      "artifact_sha256": "4b7af7cb21c15054a24aee6108336d69964d7ba7f52ebd959b12a2b2cb25e68d",
       "artifact_status": "PASS",
       "claim_id": "runtime.webhook-race",
       "description": "Real webhook race and controls",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev python -m pytest victim/tests/test_race.py victim/tests/test_worker_retry.py backend/tests/integration/test_reproduction.py backend/tests/integration/test_payload_equivalence.py -q",
-        "generated_at": "2026-07-19T20:52:41Z",
+        "generated_at": "2026-07-19T21:01:43Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "real signed HTTP and PostgreSQL bundled-scenario reproduction"
@@ -212,14 +212,14 @@
     },
     {
       "artifact_path": "artifacts/verification/warrant-boundary.json",
-      "artifact_sha256": "9f98155861bc56e86cf5ecc2041bbbb47478c2a51d6fe8d52c6668f82d306c8f",
+      "artifact_sha256": "33aa195cfec1c0d5ce23b4cbafc967c2143c637cb2f5f3bf90a1caa274400dc4",
       "artifact_status": "PASS",
       "claim_id": "runtime.warrant-boundary",
       "description": "Approval, candidate UID/capability containment, disposable executor lifecycle, and runner checks",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev python -m pytest backend/tests/unit/test_warrant.py backend/tests/integration/test_broker.py backend/tests/integration/test_broker_postgres.py backend/tests/security/test_broker_policy.py backend/tests/security/test_candidate_spoof.py backend/tests/security/test_mcp_boundaries.py backend/tests/security/test_production_sidecar.py -q",
-        "generated_at": "2026-07-19T20:54:33Z",
+        "generated_at": "2026-07-19T21:03:35Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "canonical approval, deterministic broker, candidate UID/capability containment, disposable executor boot replacement, production Broker-to-runner execution and cleanup, and MCP boundaries"
@@ -227,14 +227,14 @@
     },
     {
       "artifact_path": "artifacts/verification/warrant-boundary.json",
-      "artifact_sha256": "9f98155861bc56e86cf5ecc2041bbbb47478c2a51d6fe8d52c6668f82d306c8f",
+      "artifact_sha256": "33aa195cfec1c0d5ce23b4cbafc967c2143c637cb2f5f3bf90a1caa274400dc4",
       "artifact_status": "PASS",
       "claim_id": "runtime.human-approval",
       "description": "Explicit byte-bound human approval precedes Bailiff and broker execution",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev python -m pytest backend/tests/unit/test_warrant.py backend/tests/integration/test_broker.py backend/tests/integration/test_broker_postgres.py backend/tests/security/test_broker_policy.py backend/tests/security/test_candidate_spoof.py backend/tests/security/test_mcp_boundaries.py backend/tests/security/test_production_sidecar.py -q",
-        "generated_at": "2026-07-19T20:54:33Z",
+        "generated_at": "2026-07-19T21:03:35Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "canonical approval, deterministic broker, candidate UID/capability containment, disposable executor boot replacement, production Broker-to-runner execution and cleanup, and MCP boundaries"
@@ -242,14 +242,14 @@
     },
     {
       "artifact_path": "artifacts/verification/warrant-boundary.json",
-      "artifact_sha256": "9f98155861bc56e86cf5ecc2041bbbb47478c2a51d6fe8d52c6668f82d306c8f",
+      "artifact_sha256": "33aa195cfec1c0d5ce23b4cbafc967c2143c637cb2f5f3bf90a1caa274400dc4",
       "artifact_status": "PASS",
       "claim_id": "runtime.candidate-isolation",
       "description": "Read-only candidate workspace and trusted external success oracle",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev python -m pytest backend/tests/unit/test_warrant.py backend/tests/integration/test_broker.py backend/tests/integration/test_broker_postgres.py backend/tests/security/test_broker_policy.py backend/tests/security/test_candidate_spoof.py backend/tests/security/test_mcp_boundaries.py backend/tests/security/test_production_sidecar.py -q",
-        "generated_at": "2026-07-19T20:54:33Z",
+        "generated_at": "2026-07-19T21:03:35Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "canonical approval, deterministic broker, candidate UID/capability containment, disposable executor boot replacement, production Broker-to-runner execution and cleanup, and MCP boundaries"
@@ -257,14 +257,14 @@
     },
     {
       "artifact_path": "artifacts/verification/warrant-boundary.json",
-      "artifact_sha256": "9f98155861bc56e86cf5ecc2041bbbb47478c2a51d6fe8d52c6668f82d306c8f",
+      "artifact_sha256": "33aa195cfec1c0d5ce23b4cbafc967c2143c637cb2f5f3bf90a1caa274400dc4",
       "artifact_status": "PASS",
       "claim_id": "runtime.mcp-zones",
       "description": "Evidence, Broker, and Judge MCP authority boundaries",
       "generator": "scripts/verify-release.sh",
       "provenance": {
         "command": "uv run --frozen --extra dev python -m pytest backend/tests/unit/test_warrant.py backend/tests/integration/test_broker.py backend/tests/integration/test_broker_postgres.py backend/tests/security/test_broker_policy.py backend/tests/security/test_candidate_spoof.py backend/tests/security/test_mcp_boundaries.py backend/tests/security/test_production_sidecar.py -q",
-        "generated_at": "2026-07-19T20:54:33Z",
+        "generated_at": "2026-07-19T21:03:35Z",
         "generator": "scripts/verify-release.sh",
         "kind": "machine-generated",
         "source": "canonical approval, deterministic broker, candidate UID/capability containment, disposable executor boot replacement, production Broker-to-runner execution and cleanup, and MCP boundaries"
@@ -294,14 +294,14 @@
     },
     {
       "artifact_path": "artifacts/verification/hosted-acceptance.json",
-      "artifact_sha256": "da9ba64899b2930dcf0e240748b24d86868848f1687661c8b3da0074b62e9745",
+      "artifact_sha256": "33a8308fb57d93660436dbf6409069b2dd88deb2f04abc9dcccde273431c9bc9",
       "artifact_status": "BLOCKED",
       "claim_id": "readiness.hosted",
       "description": "External hosted acceptance state",
       "generator": "scripts/verify-hosted.sh",
       "provenance": {
         "command": "./scripts/verify-hosted.sh --output artifacts/verification/hosted-acceptance.json",
-        "generated_at": "2026-07-19T20:50:07Z",
+        "generated_at": "2026-07-19T20:59:16Z",
         "generator": "scripts/verify-hosted.sh",
         "kind": "machine-generated",
         "source": "external DNS, TLS, HTTP, authenticated MCP, and monitor probes"
@@ -309,21 +309,21 @@
     },
     {
       "artifact_path": "artifacts/verification/github-license.json",
-      "artifact_sha256": "a8fa359ee3086cfef466a3a2702821abe602f4f7dee7489cc8b4b04172785a72",
+      "artifact_sha256": "d46e83e3fe407aac79a0d7e54620af974c21e154d434b2deef609fc10be34cec",
       "artifact_status": "BLOCKED",
       "claim_id": "release.github-license",
       "description": "GitHub MIT metadata readback state",
       "generator": "scripts/verify-github-license.sh",
       "provenance": {
         "command": "./scripts/verify-github-license.sh",
-        "generated_at": "2026-07-19T20:50:07Z",
+        "generated_at": "2026-07-19T20:59:16Z",
         "generator": "scripts/verify-github-license.sh",
         "kind": "machine-generated",
         "source": "authenticated GitHub REST metadata, root license endpoint, and local git"
       }
     }
   ],
-  "generated_at": "2026-07-19T20:54:34Z",
+  "generated_at": "2026-07-19T21:03:36Z",
   "generator": "scripts/verify-release.sh",
   "schema_version": 1
 }
