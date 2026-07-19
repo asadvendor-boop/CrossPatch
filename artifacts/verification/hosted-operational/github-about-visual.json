@@ -1,9 +1,9 @@
 {
   "check_id": "github_about_visual",
-  "checked_at": "2026-07-19T16:53:55Z",
+  "checked_at": "2026-07-19T21:13:39Z",
   "command": "Codex Browser authenticated GitHub About capture",
   "deployment": {
-    "git_sha": "f06d4d39308444dc0aec0ea0d967291f94f9b3aa",
+    "git_sha": "ad83e28a64dc8ad273b630cf75e47f1600a0ccbd",
     "public_url": "https://crosspatch.repair"
   },
   "generator": "codex-browser/github-about-visual-v1",
@@ -14,9 +14,9 @@
     "authenticated_session": true,
     "repository": "asadvendor-boop/CrossPatch",
     "screenshot_path": "github-about.png",
-    "screenshot_sha256": "66bf0318eed6e96e3cfa65755cf300c2b41225018cc922ac190d1de94dc5de34"
+    "screenshot_sha256": "1e366e230014174eb69180a90dab522503770d0a641e3dfe21802ec7aa9181eb"
   },
   "schema_version": "crosspatch.hosted-evidence.v1",
-  "source": "authenticated Chrome capture of the private GitHub repository About panel",
+  "source": "authenticated Chrome capture of the public GitHub repository About panel",
   "status": "PASS"
 }
