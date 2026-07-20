@@ -1,97 +1,154 @@
 {
-  "blockers": [
-    "CROSSPATCH_JUDGE_TOKEN credential",
-    "CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration",
-    "TLS renewal schedule/readback evidence is missing or unverified",
-    "authenticated GitHub About visual readback is missing or unverified",
-    "authenticated GitHub MIT metadata readback is unverified",
-    "isolated backup/restore drill evidence is missing or unverified",
-    "judge-token persistence across restart evidence is missing or unverified",
-    "live restart-policy readback evidence is missing or unverified",
-    "uptime monitor evidence through 2026-08-13T07:00:00Z is missing"
-  ],
-  "checked_at": "2026-07-20T07:40:10Z",
+  "blockers": [],
+  "checked_at": "2026-07-20T08:16:16Z",
   "checks": {
     "authenticated_judge_mcp": {
-      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
-      "status": "BLOCKED"
+      "detail": "authenticated MCP initialize returned HTTP 200",
+      "status": "PASS"
     },
     "backup_restore": {
-      "detail": "machine-generated isolated backup/restore drill evidence is missing",
-      "status": "BLOCKED"
+      "detail": "machine-generated isolated backup/restore drill evidence verified",
+      "evidence": {
+        "artifact_path": "artifacts/verification/hosted-operational/backup_restore.json",
+        "artifact_sha256": "d8fa19cec38a6fedd8491d0594e73ac29fa9738d4ef36f2d2fe3bf622497a38f",
+        "check_id": "backup_restore",
+        "generator": "scripts/hosted_verifier.py",
+        "git_sha": "9d4c30de60abce2122ab55af20c11f5f27bc46fa",
+        "reported_status": "PASS",
+        "validation_errors": []
+      },
+      "status": "PASS"
     },
     "dns": {
-      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
-      "status": "BLOCKED"
-    },
-    "github_about_visual": {
-      "detail": "machine-generated authenticated GitHub About visual readback evidence is missing",
-      "status": "BLOCKED"
-    },
-    "github_mit_metadata": {
-      "detail": "authenticated GitHub API evidence is not in a verified state",
+      "detail": "hostname resolved",
       "evidence": {
-        "artifact_path": "artifacts/verification/github-license.json",
-        "artifact_sha256": "a06a5955344fda3b3610e7c5b5bd7c6ba0f01b57fd46928a737e80e65b5d8c2b",
-        "generator": "scripts/verify-github-license.sh",
-        "git_sha": "54e229203b2eb487abbe28b0c90fbbdc0b63f1a2",
-        "reported_status": "BLOCKED",
-        "repository": "asadvendor-boop/CrossPatch",
-        "validation_errors": [
-          "GitHub API evidence must report API_VERIFIED",
-          "one or more GitHub API checks did not pass",
-          "GitHub API artifact contains blockers"
+        "addresses": [
+          "178.104.171.141"
         ]
       },
-      "status": "BLOCKED"
+      "status": "PASS"
+    },
+    "github_about_visual": {
+      "detail": "machine-generated authenticated GitHub About visual readback evidence verified",
+      "evidence": {
+        "artifact_path": "artifacts/verification/hosted-operational/github-about-visual.json",
+        "artifact_sha256": "f0e25363e88bdbbfba876cc009b594b53ce414c0b689c604f7db3256a5295182",
+        "check_id": "github_about_visual",
+        "generator": "codex-browser/github-about-visual-v1",
+        "git_sha": "9d4c30de60abce2122ab55af20c11f5f27bc46fa",
+        "reported_status": "PASS",
+        "validation_errors": []
+      },
+      "status": "PASS"
+    },
+    "github_mit_metadata": {
+      "detail": "authenticated GitHub API MIT metadata verified",
+      "evidence": {
+        "artifact_path": "artifacts/verification/github-license.json",
+        "artifact_sha256": "a9f7c7acb58ba646d72f6042274c958e66cf1a7f667f0106aa2922a33eb59a96",
+        "generator": "scripts/verify-github-license.sh",
+        "git_sha": "9d4c30de60abce2122ab55af20c11f5f27bc46fa",
+        "reported_status": "API_VERIFIED",
+        "repository": "asadvendor-boop/CrossPatch",
+        "validation_errors": []
+      },
+      "status": "PASS"
     },
     "persistent_token": {
-      "detail": "machine-generated judge-token persistence across restart evidence is missing",
-      "status": "BLOCKED"
+      "detail": "machine-generated judge-token persistence across restart evidence verified",
+      "evidence": {
+        "artifact_path": "artifacts/verification/hosted-operational/persistent_token.json",
+        "artifact_sha256": "fdb484e719479bba507c5d585f642f2388768195390e8e78f913f4e84192acaa",
+        "check_id": "persistent_token",
+        "generator": "scripts/hosted_verifier.py",
+        "git_sha": "9d4c30de60abce2122ab55af20c11f5f27bc46fa",
+        "reported_status": "PASS",
+        "validation_errors": []
+      },
+      "status": "PASS"
     },
     "private_service_ports_unreachable": {
-      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
-      "status": "BLOCKED"
+      "detail": "private API and MCP ports are unreachable from the public host",
+      "evidence": {
+        "exposed_ports": [],
+        "host": "crosspatch.repair",
+        "probed_ports": [
+          8000,
+          8011,
+          8012,
+          8013
+        ]
+      },
+      "status": "PASS"
     },
     "public_health": {
-      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
-      "status": "BLOCKED"
+      "detail": "public health returned HTTP 200",
+      "status": "PASS"
     },
     "reachable_url": {
-      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
-      "status": "BLOCKED"
+      "detail": "public root returned HTTP 200",
+      "status": "PASS"
     },
     "restart_policy": {
-      "detail": "machine-generated live restart-policy readback evidence is missing",
-      "status": "BLOCKED"
+      "detail": "machine-generated live restart-policy readback evidence verified",
+      "evidence": {
+        "artifact_path": "artifacts/verification/hosted-operational/restart_policy.json",
+        "artifact_sha256": "f15ba7e86e793c297e6182a29bb2f7a01d5752706dc4da0fbfefa6c2136d9d3c",
+        "check_id": "restart_policy",
+        "generator": "scripts/hosted_verifier.py",
+        "git_sha": "9d4c30de60abce2122ab55af20c11f5f27bc46fa",
+        "reported_status": "PASS",
+        "validation_errors": []
+      },
+      "status": "PASS"
     },
     "tls": {
-      "detail": "hosted authority is unavailable: CROSSPATCH_PUBLIC_URL and a reachable hosted URL/DNS configuration; CROSSPATCH_JUDGE_TOKEN credential",
-      "status": "BLOCKED"
+      "detail": "trusted TLS handshake succeeded",
+      "evidence": {
+        "cipher": "TLS_AES_128_GCM_SHA256",
+        "not_after": "Oct 13 21:23:54 2026 GMT",
+        "protocol": "TLSv1.3",
+        "subject_alt_name": [
+          [
+            "DNS",
+            "crosspatch.repair"
+          ]
+        ]
+      },
+      "status": "PASS"
     },
     "tls_renewal": {
-      "detail": "machine-generated TLS renewal schedule/readback evidence is missing",
-      "status": "BLOCKED"
+      "detail": "machine-generated TLS renewal schedule/readback evidence verified",
+      "evidence": {
+        "artifact_path": "artifacts/verification/hosted-operational/tls_renewal.json",
+        "artifact_sha256": "cab069e66a703e33f330962c1ab4c0104386967da77f32eb6b34999afd3215ce",
+        "check_id": "tls_renewal",
+        "generator": "scripts/hosted_verifier.py",
+        "git_sha": "9d4c30de60abce2122ab55af20c11f5f27bc46fa",
+        "reported_status": "PASS",
+        "validation_errors": []
+      },
+      "status": "PASS"
     },
     "uptime_monitor": {
-      "detail": "uptime monitor credential/evidence through the required window is missing",
+      "detail": "external monitor is active through the required window",
       "evidence": {
-        "active_through": null,
-        "monitor_id": null
+        "active_through": "2026-09-01T07:00:00Z",
+        "monitor_id": "803533714"
       },
-      "status": "BLOCKED"
+      "status": "PASS"
     }
   },
   "command": "./scripts/verify-hosted.sh --output artifacts/verification/hosted-acceptance.json",
-  "deployment_claimed": false,
-  "deployment_git_sha": "54e229203b2eb487abbe28b0c90fbbdc0b63f1a2",
+  "deployment_claimed": true,
+  "deployment_git_sha": "9d4c30de60abce2122ab55af20c11f5f27bc46fa",
   "generator": "scripts/verify-hosted.sh",
-  "git_sha": "54e229203b2eb487abbe28b0c90fbbdc0b63f1a2",
+  "git_sha": "9d4c30de60abce2122ab55af20c11f5f27bc46fa",
   "machine_generated": true,
-  "public_url": null,
+  "public_url": "https://crosspatch.repair",
   "required_through": "2026-08-13T07:00:00Z",
   "schema_version": 1,
   "source": "external DNS, TLS, HTTP, authenticated MCP, and monitor probes",
   "source_sha256": "a8cf28d320a6b3a1c66321c03990f7918e7d1794c28bdb8d43303875cb9e752b",
-  "status": "BLOCKED"
+  "status": "VERIFIED"
 }

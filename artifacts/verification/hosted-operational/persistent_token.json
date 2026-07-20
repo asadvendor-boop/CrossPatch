@@ -1,9 +1,9 @@
 {
   "check_id": "persistent_token",
-  "checked_at": "2026-07-19T21:14:29Z",
+  "checked_at": "2026-07-20T08:15:54Z",
   "command": "authenticated Judge MCP probe before and after controlled restart",
   "deployment": {
-    "git_sha": "ad83e28a64dc8ad273b630cf75e47f1600a0ccbd",
+    "git_sha": "9d4c30de60abce2122ab55af20c11f5f27bc46fa",
     "public_url": "https://crosspatch.repair"
   },
   "generator": "scripts/hosted_verifier.py",

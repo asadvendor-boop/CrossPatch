@@ -294,14 +294,14 @@
     },
     {
       "artifact_path": "artifacts/verification/hosted-acceptance.json",
-      "artifact_sha256": "b7e6f255e2ce261661ad0225f39c821a2419a633cd1079c05bb82b89b5326a8e",
-      "artifact_status": "BLOCKED",
+      "artifact_sha256": "ef1fd8008207538d88c3e470329cd8dc4d2aaf464efcdf6071b0636c387b1cc5",
+      "artifact_status": "VERIFIED",
       "claim_id": "readiness.hosted",
       "description": "External hosted acceptance state",
       "generator": "scripts/verify-hosted.sh",
       "provenance": {
         "command": "./scripts/verify-hosted.sh --output artifacts/verification/hosted-acceptance.json",
-        "generated_at": "2026-07-20T07:40:10Z",
+        "generated_at": "2026-07-20T08:16:16Z",
         "generator": "scripts/verify-hosted.sh",
         "kind": "machine-generated",
         "source": "external DNS, TLS, HTTP, authenticated MCP, and monitor probes"
@@ -309,21 +309,21 @@
     },
     {
       "artifact_path": "artifacts/verification/github-license.json",
-      "artifact_sha256": "a06a5955344fda3b3610e7c5b5bd7c6ba0f01b57fd46928a737e80e65b5d8c2b",
-      "artifact_status": "BLOCKED",
+      "artifact_sha256": "a9f7c7acb58ba646d72f6042274c958e66cf1a7f667f0106aa2922a33eb59a96",
+      "artifact_status": "API_VERIFIED",
       "claim_id": "release.github-license",
       "description": "GitHub MIT metadata readback state",
       "generator": "scripts/verify-github-license.sh",
       "provenance": {
         "command": "./scripts/verify-github-license.sh",
-        "generated_at": "2026-07-20T07:40:09Z",
+        "generated_at": "2026-07-20T08:09:23Z",
         "generator": "scripts/verify-github-license.sh",
         "kind": "machine-generated",
         "source": "authenticated GitHub REST metadata, root license endpoint, and local git"
       }
     }
   ],
-  "generated_at": "2026-07-20T07:50:18Z",
+  "generated_at": "2026-07-20T08:17:32Z",
   "generator": "scripts/verify-release.sh",
   "schema_version": 1
 }
