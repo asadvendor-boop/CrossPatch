@@ -6,6 +6,7 @@ import {
   deriveCompetingHypotheses,
   derivePublishedSummaryMetrics,
   derivePublishedSetMetrics,
+  derivePayloadEquivalenceComparison,
   deriveSummaryWhatHappened,
   deriveWhatHappened,
   projectRecordedPrefix,
@@ -210,6 +211,67 @@ describe("record-derived case exhibits", () => {
       "The Magistrate returned CLEAR after 1 REMAND.",
       "Trusted verification recorded HTTP 202 / 200 / 409 with 1 receipt, 1 job, and 1 delivery.",
     ]);
+  });
+
+  it("derives the payload-equivalence comparison from sanitized evidence and the trusted receipt", () => {
+    expect(derivePayloadEquivalenceComparison(payloadEquivalenceSnapshot())).toEqual({
+      affected: {
+        responseStatuses: [202, 409, 409],
+        counts: { receipts: 1, jobs: 1, deliveries: 1 },
+        source: {
+          id: "ev-baseline",
+          sha256: hash("1"),
+        },
+      },
+      repaired: {
+        responseStatuses: [202, 200, 409],
+        counts: { receipts: 1, jobs: 1, deliveries: 1 },
+        source: {
+          id: "test-recorded",
+          sha256: hash("e"),
+        },
+      },
+    });
+  });
+
+  it.each([
+    ["an unknown plan", (snapshot: IncidentRoomSnapshot) => {
+      snapshot.artifacts.tests[0] = {
+        ...snapshot.artifacts.tests[0],
+        label: "victim.unknown.candidate",
+      };
+    }],
+    ["a malformed affected status triplet", (snapshot: IncidentRoomSnapshot) => {
+      snapshot.artifacts.evidence[0] = {
+        ...snapshot.artifacts.evidence[0],
+        content: JSON.stringify({
+          counts: { receipts: 1, jobs: 1, deliveries: 1 },
+          response_statuses: [202, 409],
+        }),
+      };
+    }],
+    ["an unsupported evidence hash", (snapshot: IncidentRoomSnapshot) => {
+      snapshot.artifacts.evidence[0] = {
+        ...snapshot.artifacts.evidence[0],
+        sha256: "not-a-sha256",
+      };
+    }],
+    ["a missing trusted receipt", (snapshot: IncidentRoomSnapshot) => {
+      snapshot.artifacts.tests = [];
+    }],
+    ["a missing VERIFIED linkage", (snapshot: IncidentRoomSnapshot) => {
+      snapshot.events = snapshot.events.filter((item) => item.kind !== "VERIFIED");
+    }],
+    ["an inconclusive reproduction", (snapshot: IncidentRoomSnapshot) => {
+      snapshot.events = snapshot.events.map((item) => item.kind === "EVIDENCE_CAPTURED"
+        ? { ...item, details: { ...item.details, outcome: "INFRA_INCONCLUSIVE" } }
+        : item);
+    }],
+  ])("omits the payload-equivalence comparison for %s", (_label, mutate) => {
+    const snapshot = payloadEquivalenceSnapshot();
+    mutate(snapshot);
+
+    expect(derivePayloadEquivalenceComparison(snapshot)).toBeNull();
   });
 
   it("omits the trusted proof sentence when recorded statuses or counts are missing", () => {

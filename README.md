@@ -114,7 +114,7 @@ Running `make eval` independently reproduced that exact hash twice.
 For audit depth rather than marketing, the current keyless inventory records 899
 Python test executions passed across the two gates—872 in the backend/victim
 suite (with claim-map validation excluded) and 27 in the dedicated claim-map
-validation—with 28 skips; 311 UI tests and 4 browser E2E tests passed, with one
+validation—with 28 skips; 318 UI tests and 5 browser E2E tests passed, with one
 capture-generator test skipped. Those counts are evidence inventory, not the
 product headline.
 

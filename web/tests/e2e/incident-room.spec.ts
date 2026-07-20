@@ -1,6 +1,10 @@
 import { expect, test } from "@playwright/test";
 
-import { publicCaseEnvelope, publicCaseSummary } from "../fixtures/public-cases";
+import {
+  publicCaseEnvelope,
+  publicCaseSummary,
+  publicPayloadEquivalenceEnvelope,
+} from "../fixtures/public-cases";
 import {
   installOperatorRoom,
   operatorCanonicalDocument,
@@ -124,4 +128,28 @@ test("reaches the featured published case in one credential-free click", async (
   expect(visibleClicks).toBe(1);
   expect(await page.evaluate(() => window.sessionStorage.length)).toBe(0);
   expect(authorizationHeaders).toEqual([undefined, undefined]);
+});
+
+test("shows the record-derived retry comparison without viewport overflow", async ({ page }) => {
+  await page.route(/\/api\/public\/cases\/inc-public-1$/, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(publicPayloadEquivalenceEnvelope()),
+    });
+  });
+
+  await page.goto("/cases/inc-public-1");
+
+  const comparison = page.getByRole("region", { name: "Retry semantics, before and after" });
+  await expect(comparison).toBeVisible();
+  await expect(comparison).toContainText("202 / 409 / 409");
+  await expect(comparison).toContainText("202 / 200 / 409");
+  await expect(comparison).toContainText("1 receipt / 1 job / 1 delivery");
+
+  await page.setViewportSize({ width: 320, height: 900 });
+  await expect(comparison).toBeVisible();
+  await expect.poll(() => page.evaluate(() =>
+    document.documentElement.scrollWidth <= document.documentElement.clientWidth))
+    .toBe(true);
 });

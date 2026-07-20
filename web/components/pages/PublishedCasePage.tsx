@@ -8,6 +8,7 @@ import { WarrantAnatomy } from "@/components/exhibits/WarrantAnatomy";
 import { AuthorityLifecycle } from "@/components/exhibits/AuthorityLifecycle";
 import { ImpactMetrics } from "@/components/exhibits/ImpactMetrics";
 import { HypothesisExhibit } from "@/components/exhibits/HypothesisExhibit";
+import { PayloadEquivalenceComparison } from "@/components/exhibits/PayloadEquivalenceComparison";
 import { RecordScrubber } from "@/components/exhibits/RecordScrubber";
 import { WhatHappened } from "@/components/exhibits/WhatHappened";
 import { SignalRoom } from "@/components/room/SignalRoom";
@@ -16,6 +17,7 @@ import {
   deriveCaseMetrics,
   deriveCompetingHypotheses,
   deriveAuthorityLifecycle,
+  derivePayloadEquivalenceComparison,
   deriveWhatHappened,
   projectRecordedPrefix,
 } from "@/lib/case-exhibits";
@@ -177,6 +179,7 @@ export function PublishedCasePage({ incidentId }: { incidentId: string }) {
       </dl>
 
       <WhatHappened sentences={deriveWhatHappened(snapshot)} />
+      <PayloadEquivalenceComparison comparison={derivePayloadEquivalenceComparison(snapshot)} />
       <ImpactMetrics metrics={deriveCaseMetrics(snapshot)} scope="this published case" />
       <HypothesisExhibit exhibit={deriveCompetingHypotheses(snapshot)} />
 

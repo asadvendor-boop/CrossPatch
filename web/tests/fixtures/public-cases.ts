@@ -361,6 +361,11 @@ export function publicPayloadEquivalenceEnvelope(
   envelope.display_title = "Equivalent webhook retry rejected";
   envelope.projection.incident.title = "Equivalent webhook retry rejected";
   envelope.projection.incident.scenario = "webhook-payload-equivalence";
+  envelope.projection.events[1].details = {
+    evidence_id: "ev-public-baseline",
+    sanitized_sha256: hash("e"),
+    outcome: "FAILED",
+  };
 
   const baseline = envelope.projection.artifacts.evidence[0];
   baseline.provenance = "deterministic webhook payload-equivalence reproduction";

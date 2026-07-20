@@ -319,6 +319,18 @@ describe("published case detail", () => {
     expect(explanation).toHaveTextContent(
       "Trusted verification recorded HTTP 202 / 200 / 409 with 1 receipt, 1 job, and 1 delivery.",
     );
+    const comparison = screen.getByRole("region", {
+      name: "Retry semantics, before and after",
+    });
+    expect(comparison).toHaveTextContent("Affected reproduction");
+    expect(comparison).toHaveTextContent("202 / 409 / 409");
+    expect(comparison).toHaveTextContent("Sanitized incident evidence");
+    expect(comparison).toHaveTextContent("Trusted verification");
+    expect(comparison).toHaveTextContent("202 / 200 / 409");
+    expect(comparison).toHaveTextContent("Post-patch sidecar oracle");
+    expect(comparison).toHaveTextContent("Database oracle");
+    expect(comparison).toHaveTextContent("1 receipt / 1 job / 1 delivery");
+    expect(comparison).toHaveTextContent("Trusted PostgreSQL observation");
     expect(screen.getByLabelText("Recorded case facts")).toHaveTextContent("8 events");
   });
 
@@ -335,6 +347,10 @@ describe("published case detail", () => {
     const facts = await screen.findByLabelText("Recorded case facts");
     expect(within(facts).getByText("2 / 3 / 4")).toBeVisible();
     expect(within(facts).queryByText("1 / 1 / 1")).not.toBeInTheDocument();
+    const comparison = screen.getByRole("region", {
+      name: "Retry semantics, before and after",
+    });
+    expect(comparison).toHaveTextContent("2 receipts / 3 jobs / 4 deliveries");
   });
 
   it("shows an unknown plan as neutral recorded data and omits a verified-proof sentence", async () => {
@@ -347,6 +363,8 @@ describe("published case detail", () => {
     const explanation = await screen.findByRole("region", { name: "What happened" });
     expect(explanation).toHaveTextContent("Recorded plan: victim.unknown.candidate.");
     expect(explanation).not.toHaveTextContent("Trusted verification recorded");
+    expect(screen.queryByRole("region", { name: "Retry semantics, before and after" }))
+      .not.toBeInTheDocument();
   });
 
   it("shows the provenance-linked rival that did not survive the recorded CLEAR", async () => {

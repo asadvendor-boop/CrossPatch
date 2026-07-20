@@ -103,6 +103,21 @@ interface Counts {
   deliveries: number;
 }
 
+type HttpStatusTriplet = readonly [number, number, number];
+
+export interface PayloadEquivalenceComparison {
+  affected: {
+    responseStatuses: HttpStatusTriplet;
+    counts: Counts;
+    source: { id: string; sha256: string };
+  };
+  repaired: {
+    responseStatuses: HttpStatusTriplet;
+    counts: Counts;
+    source: { id: string; sha256: string };
+  };
+}
+
 const EFFORTS = new Set<Effort>(["none", "low", "medium", "high", "xhigh"]);
 const VERDICTS = new Set(["CLEAR", "REMAND", "BLOCK", "ABSTAIN"]);
 const SHA256 = /^[0-9a-f]{64}$/;
@@ -140,22 +155,40 @@ function validCount(value: unknown): value is number {
   return typeof value === "number" && Number.isInteger(value) && value >= 0;
 }
 
+function statusTriplet(value: unknown): HttpStatusTriplet | null {
+  if (
+    !Array.isArray(value)
+    || value.length !== 3
+    || !value.every((item) => (
+      typeof item === "number"
+      && Number.isInteger(item)
+      && item >= 100
+      && item <= 599
+    ))
+  ) return null;
+  return [value[0], value[1], value[2]];
+}
+
+function recordedCounts(value: unknown): Counts | null {
+  const counts = object(value);
+  if (
+    !validCount(counts.receipts)
+    || !validCount(counts.jobs)
+    || !validCount(counts.deliveries)
+  ) return null;
+  return {
+    receipts: counts.receipts,
+    jobs: counts.jobs,
+    deliveries: counts.deliveries,
+  };
+}
+
 function countsFromEvidence(snapshot: IncidentRoomSnapshot): Counts | null {
   for (const evidence of snapshot.artifacts.evidence) {
     if (!evidence.content) continue;
     try {
-      const counts = object(object(JSON.parse(evidence.content)).counts);
-      if (
-        validCount(counts.receipts)
-        && validCount(counts.jobs)
-        && validCount(counts.deliveries)
-      ) {
-        return {
-          receipts: counts.receipts,
-          jobs: counts.jobs,
-          deliveries: counts.deliveries,
-        };
-      }
+      const counts = recordedCounts(object(JSON.parse(evidence.content)).counts);
+      if (counts) return counts;
     } catch {
       // Sanitized evidence is untrusted; malformed content is not a source.
     }
@@ -238,6 +271,60 @@ export function deriveWhatHappened(snapshot: IncidentRoomSnapshot): string[] {
     }
   }
   return sentences;
+}
+
+export function derivePayloadEquivalenceComparison(
+  snapshot: IncidentRoomSnapshot,
+): PayloadEquivalenceComparison | null {
+  const proof = proofFromSnapshot(snapshot);
+  const plan = proof.planId ? presentRecordedPlan(proof.planId) : null;
+  const repairedStatuses = statusTriplet(proof.responseStatuses);
+  if (
+    proof.state !== "verified"
+    || !plan?.known
+    || plan.scenario !== "webhook-payload-equivalence"
+    || !proof.counts
+    || !proof.receiptId
+    || !proof.receiptSha256
+    || !repairedStatuses
+  ) return null;
+
+  const evidenceEvents = recordedEvents(snapshot).filter((event) => event.kind === "EVIDENCE_CAPTURED");
+  for (const evidence of snapshot.artifacts.evidence) {
+    if (
+      evidence.classification !== "UNTRUSTED_EVIDENCE"
+      || !SHA256.test(evidence.sha256)
+      || !evidence.content
+    ) continue;
+    const linked = evidenceEvents.some((event) => {
+      const details = object(event.details);
+      return details.evidence_id === evidence.id
+        && details.sanitized_sha256 === evidence.sha256
+        && details.outcome === "FAILED";
+    });
+    if (!linked) continue;
+    try {
+      const content = object(JSON.parse(evidence.content));
+      const affectedCounts = recordedCounts(content.counts);
+      const affectedStatuses = statusTriplet(content.response_statuses);
+      if (!affectedCounts || !affectedStatuses) continue;
+      return {
+        affected: {
+          responseStatuses: affectedStatuses,
+          counts: affectedCounts,
+          source: { id: evidence.id, sha256: evidence.sha256 },
+        },
+        repaired: {
+          responseStatuses: repairedStatuses,
+          counts: proof.counts,
+          source: { id: proof.receiptId, sha256: proof.receiptSha256 },
+        },
+      };
+    } catch {
+      // Sanitized evidence is untrusted; malformed content cannot support the comparison.
+    }
+  }
+  return null;
 }
 
 function linkedSpecialistEvent(
