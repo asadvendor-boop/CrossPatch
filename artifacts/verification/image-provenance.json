@@ -1,45 +1,45 @@
 {
-  "build_context_evidence_sha256": "f7b64ba508d406eded014c00910fed53095daaad9d4e3ff9a8fee2f4951308a2",
-  "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-  "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
-  "checked_at": "2026-07-19T21:01:35Z",
+  "build_context_evidence_sha256": "08903f76ae72b951c35e72ba4a53c34d7207c158d4fd32ae9b572c4d4723f079",
+  "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+  "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
+  "checked_at": "2026-07-20T07:48:16Z",
   "compose_file_sha256": "b7b06b86f5076dcab3b0fada12ed4a0f41f943ee35defd9a914774b3aec4d4d2",
-  "deployment_manifest_sha256": "de475a97e2aade10f85a39c760d4a4504926f6056f8f2161d2abf9aa29be12cb",
+  "deployment_manifest_sha256": "160fc6645ec334dee2480568f8d2e36ede99547bc3b2f2f7ec4bab2d81c0c0ee",
   "generator": "scripts/capture_image_provenance.py",
-  "git_sha": "25a02905f32fbfdfe62ed9c99086ae21f20f8baa",
-  "immutable_build_evidence_sha256": "17d84a0b597d77b24457562517fa42cb4eb96edaf3ab1697dd978925e323e45a",
+  "git_sha": "54e229203b2eb487abbe28b0c90fbbdc0b63f1a2",
+  "immutable_build_evidence_sha256": "8f17c3b64b3714276cdf73b2fc43de49a78a2d30eed3eea46bff0cd0f8bfaa2f",
   "machine_generated": true,
   "schema_version": 1,
   "services": [
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-app:local",
-      "container_id": "eb7ba67d72f0a0bf8aa34f83f23c13681ff24f96f164e6f17da56ab25b37aa4e",
+      "container_id": "6b87e63413d5ff348197712b81c7951bfec437e814aabdcb769dd4696729a109",
       "exit_code": 0,
-      "image_id": "sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487",
+      "image_id": "sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e",
       "repo_digests": [
-        "crosspatch-app@sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487"
+        "crosspatch-app@sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e"
       ],
       "service": "api",
       "state": "running"
     },
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-app:local",
-      "container_id": "7a0e74f509fd20048e3a0ec318ca7d485fbc2de4be30d45f5961bc275cb9492c",
+      "container_id": "75b7e42be825a60904a299514b6a48794bfaa20bcbff6a2467b270dd49292dd3",
       "exit_code": 0,
-      "image_id": "sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487",
+      "image_id": "sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e",
       "repo_digests": [
-        "crosspatch-app@sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487"
+        "crosspatch-app@sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e"
       ],
       "service": "broker-mcp",
       "state": "running"
     },
     {
       "configured_image": "caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d",
-      "container_id": "71df90e3aeb9cb51b49de0b63544429ca9a75cb2e45500dbdc5995c4702ef209",
+      "container_id": "0f30546932511efaf149ae4058639681a1128cae62cdd8029ebb33df31b984f7",
       "exit_code": 0,
       "image_id": "sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d",
       "repo_digests": [
@@ -49,60 +49,60 @@
       "state": "running"
     },
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-runner:local",
-      "container_id": "1bb56d490c58627ed86203207cf7d29c2df9c17088b4fee98ffda37b1d4e878d",
+      "container_id": "8f2ac428d0e4a26879adac219bbb5b5273f39a30112b38f234c776987b5c95fe",
       "exit_code": 0,
-      "image_id": "sha256:71acaf9188de587176c5b625a9aa421bb8147f392b80e86bf158b3ff16f3fa92",
+      "image_id": "sha256:0726f2bce5e717aefe28fc5c8c26e5093dc7bcd8d27e37041ccf4afc9b735d61",
       "repo_digests": [
-        "crosspatch-runner@sha256:71acaf9188de587176c5b625a9aa421bb8147f392b80e86bf158b3ff16f3fa92"
+        "crosspatch-runner@sha256:0726f2bce5e717aefe28fc5c8c26e5093dc7bcd8d27e37041ccf4afc9b735d61"
       ],
       "service": "candidate-executor",
       "state": "running"
     },
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-app:local",
-      "container_id": "84852943fcbd0fe85417ef78a1bc6528ca51a1071b068f9dbc8c002cf1a1491a",
+      "container_id": "efb94719ce5cf69eb8fa2463f0b69432abbf5012bb1d3a660e14a5c842c00573",
       "exit_code": 0,
-      "image_id": "sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487",
+      "image_id": "sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e",
       "repo_digests": [
-        "crosspatch-app@sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487"
+        "crosspatch-app@sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e"
       ],
       "service": "control-migrate",
       "state": "exited"
     },
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-app:local",
-      "container_id": "3c95e84a035054871b512d7031d8aad400fd2ae618da497d55f9ab882df4bda9",
+      "container_id": "8f61479663e484b32a792bd5c7c66832f2ff9d9eb4f0148d5de6cc54c764a27c",
       "exit_code": 0,
-      "image_id": "sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487",
+      "image_id": "sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e",
       "repo_digests": [
-        "crosspatch-app@sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487"
+        "crosspatch-app@sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e"
       ],
       "service": "evidence-mcp",
       "state": "running"
     },
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-app:local",
-      "container_id": "b03bef6cf250fdace9f180519ac8dbc302901c5ed1a100f7742441f8c0380d27",
+      "container_id": "88ae85e5c6f83f1f2b2171e6ec2373bacfc52bad106f65811e9d585782ef7f4e",
       "exit_code": 0,
-      "image_id": "sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487",
+      "image_id": "sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e",
       "repo_digests": [
-        "crosspatch-app@sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487"
+        "crosspatch-app@sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e"
       ],
       "service": "judge-mcp",
       "state": "running"
     },
     {
       "configured_image": "postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
-      "container_id": "778daef93875e9968ee64bcb7c2df49aa50d958add7e16dbf2a5593bba2346f4",
+      "container_id": "6d5b304a59b5fa7f86b80d5c02af9814ad15a3a13cb0025f68faeea80623439e",
       "exit_code": 0,
       "image_id": "sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
       "repo_digests": [
@@ -112,34 +112,34 @@
       "state": "running"
     },
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-runner:local",
-      "container_id": "94d407b6f82523d82233e0bfaa72f4e281c592308f3621620a4727b49ed98ce5",
+      "container_id": "a0d8b1968db0708821ab157f3ee8c514a4196418673f16882e57529c9deeb1fe",
       "exit_code": 0,
-      "image_id": "sha256:71acaf9188de587176c5b625a9aa421bb8147f392b80e86bf158b3ff16f3fa92",
+      "image_id": "sha256:0726f2bce5e717aefe28fc5c8c26e5093dc7bcd8d27e37041ccf4afc9b735d61",
       "repo_digests": [
-        "crosspatch-runner@sha256:71acaf9188de587176c5b625a9aa421bb8147f392b80e86bf158b3ff16f3fa92"
+        "crosspatch-runner@sha256:0726f2bce5e717aefe28fc5c8c26e5093dc7bcd8d27e37041ccf4afc9b735d61"
       ],
       "service": "runner",
       "state": "running"
     },
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-runner:local",
-      "container_id": "ca2d1db893e17458112025fa48a597b33d6be27125b9d905b1133b8077bed41f",
+      "container_id": "f5499df32c3a4b6383aafedab66ede15a9de662446a0c23628286e8f338fa191",
       "exit_code": 0,
-      "image_id": "sha256:71acaf9188de587176c5b625a9aa421bb8147f392b80e86bf158b3ff16f3fa92",
+      "image_id": "sha256:0726f2bce5e717aefe28fc5c8c26e5093dc7bcd8d27e37041ccf4afc9b735d61",
       "repo_digests": [
-        "crosspatch-runner@sha256:71acaf9188de587176c5b625a9aa421bb8147f392b80e86bf158b3ff16f3fa92"
+        "crosspatch-runner@sha256:0726f2bce5e717aefe28fc5c8c26e5093dc7bcd8d27e37041ccf4afc9b735d61"
       ],
       "service": "victim",
       "state": "running"
     },
     {
       "configured_image": "postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
-      "container_id": "c83bb36e9b5097ba85a0fab261a85a3a4743ab74bd4b44dd74a7eeea88cc68cf",
+      "container_id": "47dfe08b99b3beebc9153fb5fb3c2b58aa124bfe9461a4e6c081d7b197124978",
       "exit_code": 0,
       "image_id": "sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
       "repo_digests": [
@@ -150,7 +150,7 @@
     },
     {
       "configured_image": "postgres:16-bookworm@sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
-      "container_id": "522baf11aed58d97e2571c97c7d60be0536e8db17c4f6c4cbf47bef0ae12ec70",
+      "container_id": "eede5293deef000a84ed30dde70273bef280bdf1d5d97e966b820f91a3ac8457",
       "exit_code": 0,
       "image_id": "sha256:da788743d2060767375896de4d646f7576f5911461444b372616f19ea61db2ec",
       "repo_digests": [
@@ -160,27 +160,27 @@
       "state": "exited"
     },
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-app:local",
-      "container_id": "573db87d9abd0b70475c4707f1d1dd6a1623a2789b9d478445927c0b1c0c2da9",
+      "container_id": "712534d2d39642eba54147d279b9a006177339b39d3ec01455033b5ba9440e03",
       "exit_code": 0,
-      "image_id": "sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487",
+      "image_id": "sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e",
       "repo_digests": [
-        "crosspatch-app@sha256:df46461a35f9df8bd16ab51956a876a37887448cf8b653d4c20167aabfa56487"
+        "crosspatch-app@sha256:e6db8636b55cabb57d1dec0a34a64a03f475573c24186ea2612712ac75dd768e"
       ],
       "service": "victim-worker",
       "state": "running"
     },
     {
-      "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-      "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
+      "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+      "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
       "configured_image": "crosspatch-web:local",
-      "container_id": "25855fd6fc7363d1a2d8b49684cdcfff337ece83263e934d7e6cbc87e26353b7",
+      "container_id": "42a2f41fe74b38aea17304d6e952a7a80868c293de99f871340285d59525e6b5",
       "exit_code": 0,
-      "image_id": "sha256:27af0161c96a6ae49f4ca2ce5fbbcda406416d2eefc6a6f259f882d83909a59e",
+      "image_id": "sha256:d4106a2ae81cbeb65f0b2910b0fe0c83d912f514b2f995f1eeb5dadc009c602f",
       "repo_digests": [
-        "crosspatch-web@sha256:27af0161c96a6ae49f4ca2ce5fbbcda406416d2eefc6a6f259f882d83909a59e"
+        "crosspatch-web@sha256:d4106a2ae81cbeb65f0b2910b0fe0c83d912f514b2f995f1eeb5dadc009c602f"
       ],
       "service": "web",
       "state": "running"

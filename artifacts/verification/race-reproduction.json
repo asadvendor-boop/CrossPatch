@@ -1,38 +1,38 @@
 {
-  "checked_at": "2026-07-19T21:01:43Z",
+  "checked_at": "2026-07-20T07:48:24Z",
   "checks": [
     {
       "command": "uv run --frozen --extra dev python -m pytest victim/tests/test_race.py victim/tests/test_worker_retry.py backend/tests/integration/test_reproduction.py backend/tests/integration/test_payload_equivalence.py -q",
-      "duration_ms": 325,
+      "duration_ms": 377,
       "exit_code": 0,
       "output_bytes": 125,
-      "output_sha256": "d15ecc0fbd643e7a1013d86cbc5e86825e4fa9461bb33a6e8ba2a99eed2cfca0",
+      "output_sha256": "1e73668c66451af1e7afdcf2b00ae34a9643cf5fd67406e8e590867b9615d989",
       "output_truncated": false,
-      "started_at": "2026-07-19T21:01:36Z",
+      "started_at": "2026-07-20T07:48:17Z",
       "status": "PASS",
       "stderr": "",
-      "stdout": "sssss..ssss.s                                                            [100%]\n3 passed, 10 skipped in 0.14s\n",
+      "stdout": "sssss..ssss.s                                                            [100%]\n3 passed, 10 skipped in 0.19s\n",
       "timed_out": false
     },
     {
       "command": "docker compose --profile verification run --rm -T victim-postgres-verifier -m pytest /opt/crosspatch/tests/victim/test_race.py /opt/crosspatch/tests/victim/test_worker_retry.py /opt/crosspatch/tests/backend/integration/test_reproduction.py::test_affected_revision_reproduces_real_duplicate_delivery /opt/crosspatch/tests/backend/integration/test_payload_equivalence.py::test_affected_revision_rejects_semantically_equivalent_retry -q",
-      "duration_ms": 6689,
+      "duration_ms": 6683,
       "exit_code": 0,
       "output_bytes": 947,
-      "output_sha256": "4aa345d7c48a9cf0dba504c969e67f254af3733232dc65c5f58515695afca379",
+      "output_sha256": "0e9375729323c5b5ce6bae4e0599c7192fe2fa5433aa8ef349ca14fbf36e82e0",
       "output_truncated": false,
-      "started_at": "2026-07-19T21:01:36Z",
+      "started_at": "2026-07-20T07:48:17Z",
       "status": "PASS",
-      "stderr": " Network crosspatch-release-proof-dec499abd687_verification Creating \n Network crosspatch-release-proof-dec499abd687_verification Created \n Container crosspatch-release-proof-dec499abd687-verification-postgres-1 Creating \n Container crosspatch-release-proof-dec499abd687-verification-postgres-1 Created \n Container crosspatch-release-proof-dec499abd687-verification-postgres-1 Starting \n Container crosspatch-release-proof-dec499abd687-verification-postgres-1 Started \n Container crosspatch-release-proof-dec499abd687-verification-postgres-1 Waiting \n Container crosspatch-release-proof-dec499abd687-verification-postgres-1 Healthy \n Container crosspatch-release-proof-dec499abd687-victim-postgres-verifier-run-a60f5800291e Creating \n Container crosspatch-release-proof-dec499abd687-victim-postgres-verifier-run-a60f5800291e Created \n",
-      "stdout": ".......                                                                  [100%]\n7 passed in 0.65s\n",
+      "stderr": " Network crosspatch-release-proof-e24c48ba96d6_verification Creating \n Network crosspatch-release-proof-e24c48ba96d6_verification Created \n Container crosspatch-release-proof-e24c48ba96d6-verification-postgres-1 Creating \n Container crosspatch-release-proof-e24c48ba96d6-verification-postgres-1 Created \n Container crosspatch-release-proof-e24c48ba96d6-verification-postgres-1 Starting \n Container crosspatch-release-proof-e24c48ba96d6-verification-postgres-1 Started \n Container crosspatch-release-proof-e24c48ba96d6-verification-postgres-1 Waiting \n Container crosspatch-release-proof-e24c48ba96d6-verification-postgres-1 Healthy \n Container crosspatch-release-proof-e24c48ba96d6-victim-postgres-verifier-run-5a80bb4c7397 Creating \n Container crosspatch-release-proof-e24c48ba96d6-victim-postgres-verifier-run-5a80bb4c7397 Created \n",
+      "stdout": ".......                                                                  [100%]\n7 passed in 0.73s\n",
       "timed_out": false
     }
   ],
   "generator": "scripts/verify-release.sh",
-  "git_sha": "25a02905f32fbfdfe62ed9c99086ae21f20f8baa",
+  "git_sha": "54e229203b2eb487abbe28b0c90fbbdc0b63f1a2",
   "machine_generated": true,
   "schema_version": 1,
   "source": "real signed HTTP and PostgreSQL bundled-scenario reproduction",
-  "source_sha256": "89c147160baa86c1994ff750b754009c7f54b5f0031d241edae060f1308a9ca6",
+  "source_sha256": "a8cf28d320a6b3a1c66321c03990f7918e7d1794c28bdb8d43303875cb9e752b",
   "status": "PASS"
 }

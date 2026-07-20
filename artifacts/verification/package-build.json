@@ -1,38 +1,38 @@
 {
-  "checked_at": "2026-07-19T21:01:33Z",
+  "checked_at": "2026-07-20T07:48:14Z",
   "checks": [
     {
       "command": "uv lock --check",
-      "duration_ms": 11,
+      "duration_ms": 17,
       "exit_code": 0,
       "output_bytes": 43,
-      "output_sha256": "e9eeea22325a7a4e7ef04252844dd951a4b4698be757384194184c6b96f5e153",
+      "output_sha256": "d470126b489d17af993604506db52eca3c6408ec6e454fe91b98e53e2209ffd3",
       "output_truncated": false,
-      "started_at": "2026-07-19T21:01:31Z",
+      "started_at": "2026-07-20T07:48:12Z",
       "status": "PASS",
-      "stderr": "Resolved 77 packages in 2ms\n",
+      "stderr": "Resolved 77 packages in 7ms\n",
       "stdout": "",
       "timed_out": false
     },
     {
       "command": "uv run --frozen --extra dev python scripts/verify_package_install.py",
-      "duration_ms": 2206,
+      "duration_ms": 2734,
       "exit_code": 0,
       "output_bytes": 412,
-      "output_sha256": "4c278ae71e30977e0830234819d9f13e6d76b8e571175cd57175b5d16bb312a3",
+      "output_sha256": "76e90eda5b3d4fa639184474a2b8f09149e515d56b0b19682a8eaf32a5924f55",
       "output_truncated": false,
-      "started_at": "2026-07-19T21:01:31Z",
+      "started_at": "2026-07-20T07:48:12Z",
       "status": "PASS",
       "stderr": "",
-      "stdout": "{\n  \"machine_generated\": true,\n  \"schema_version\": 1,\n  \"sdist\": \"crosspatch-0.1.0.tar.gz\",\n  \"smoke_command\": [\n    \"crosspatch\",\n    \"--help\"\n  ],\n  \"smoke_output_sha256\": \"6b911de98e7b09d5c28ec0214e724968f9db9e610d2c8a588ff1bd15bcf60441\",\n  \"status\": \"PASS\",\n  \"wheel\": \"crosspatch-0.1.0-py3-none-any.whl\",\n  \"wheel_sha256\": \"6a68fa4b1c2f98777416d180d39da5dcf0ee3b90c996f0d6f36b4445b60341d6\"\n}\n",
+      "stdout": "{\n  \"machine_generated\": true,\n  \"schema_version\": 1,\n  \"sdist\": \"crosspatch-0.1.0.tar.gz\",\n  \"smoke_command\": [\n    \"crosspatch\",\n    \"--help\"\n  ],\n  \"smoke_output_sha256\": \"6b911de98e7b09d5c28ec0214e724968f9db9e610d2c8a588ff1bd15bcf60441\",\n  \"status\": \"PASS\",\n  \"wheel\": \"crosspatch-0.1.0-py3-none-any.whl\",\n  \"wheel_sha256\": \"c941cf4e7019ddef0969e3031149dc4c0ba058d674ae7557e75c683ee6d42495\"\n}\n",
       "timed_out": false
     }
   ],
   "generator": "scripts/verify-release.sh",
-  "git_sha": "25a02905f32fbfdfe62ed9c99086ae21f20f8baa",
+  "git_sha": "54e229203b2eb487abbe28b0c90fbbdc0b63f1a2",
   "machine_generated": true,
   "schema_version": 1,
   "source": "frozen dependency graphs and distributable source/wheel build",
-  "source_sha256": "89c147160baa86c1994ff750b754009c7f54b5f0031d241edae060f1308a9ca6",
+  "source_sha256": "a8cf28d320a6b3a1c66321c03990f7918e7d1794c28bdb8d43303875cb9e752b",
   "status": "PASS"
 }

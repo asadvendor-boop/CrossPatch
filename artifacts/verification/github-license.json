@@ -5,8 +5,10 @@
     "required_before_submission": true,
     "status": "NOT_PERFORMED"
   },
-  "blockers": [],
-  "checked_at": "2026-07-19T21:13:13Z",
+  "blockers": [
+    "GitHub release branch HEAD does not match local HEAD"
+  ],
+  "checked_at": "2026-07-20T07:40:09Z",
   "checks": {
     "about_metadata": {
       "actual_description": "Failure-first SRE incident review with deterministic, warrant-bound execution.",
@@ -34,9 +36,9 @@
     },
     "remote_head_matches_local_head": {
       "branch": "main",
-      "local_head": "ad83e28a64dc8ad273b630cf75e47f1600a0ccbd",
-      "remote_head": "ad83e28a64dc8ad273b630cf75e47f1600a0ccbd",
-      "status": "PASS"
+      "local_head": "54e229203b2eb487abbe28b0c90fbbdc0b63f1a2",
+      "remote_head": "00911ba702ec6b628172eb018a8194ad5fa082c4",
+      "status": "FAIL"
     },
     "repository_readback": {
       "actual": "asadvendor-boop/CrossPatch",
@@ -70,12 +72,12 @@
     "visibility": "public"
   },
   "generator": "scripts/verify-github-license.sh",
-  "git_sha": "ad83e28a64dc8ad273b630cf75e47f1600a0ccbd",
+  "git_sha": "54e229203b2eb487abbe28b0c90fbbdc0b63f1a2",
   "machine_generated": true,
   "repository": "asadvendor-boop/CrossPatch",
   "schema_version": 1,
   "source": "authenticated GitHub REST metadata, root license endpoint, and local git",
-  "source_sha256": "89c147160baa86c1994ff750b754009c7f54b5f0031d241edae060f1308a9ca6",
-  "status": "API_VERIFIED",
+  "source_sha256": "a8cf28d320a6b3a1c66321c03990f7918e7d1794c28bdb8d43303875cb9e752b",
+  "status": "BLOCKED",
   "verification_scope": "authenticated GitHub API and local git only"
 }

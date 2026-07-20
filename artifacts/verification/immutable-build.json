@@ -1,7 +1,7 @@
 {
-  "build_context_manifest_sha256": "e8f3d0c5cf6d2713f617a9b7eb3214a4c5e73ac68f9b0e99d98cd032c88b7578",
-  "build_context_tar_sha256": "2f9fb774e94bb74189d1177d96f0146944adc2a7add78f9fb9caaf3336ae843f",
-  "checked_at": "2026-07-19T21:01:02Z",
+  "build_context_manifest_sha256": "5e858027808983c5f8731a6663fa0bb1644de63d25fe7749db46428483810651",
+  "build_context_tar_sha256": "fed81174094a18584fa67938d6464503e7398111a569109a455b56f05cdb4f6f",
+  "checked_at": "2026-07-20T07:47:43Z",
   "generator": "scripts/build_immutable_images.py",
   "images": [
     {
